@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 
 @implementation MainViewController
+@synthesize TheMap;
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize flipsidePopoverController = _flipsidePopoverController;
@@ -43,6 +44,7 @@
 
 - (void)viewDidUnload
 {
+    [self setTheMap:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -113,6 +115,16 @@
 
 - (void)locationUpdate:(CLLocation *)location {
     locationLabel.text = [location description];
+    [TheMap setShowsUserLocation:YES];
+    MKCoordinateRegion region;
+	region.center=location.coordinate;
+    MKCoordinateSpan span;
+	span.latitudeDelta=.005;
+	span.longitudeDelta=.005;
+	region.span=span;
+    
+	[TheMap setRegion:region animated:TRUE];
+    
 }
 
 - (void)locationError:(NSError *)error {
@@ -128,6 +140,11 @@
         [statusLabel setTitle:@"Stop" forState:UIControlStateNormal] ; 
 
     }
+}
+
+
+- (IBAction)uploadPhoto:(id)sender{
+    
 }
 
 @end

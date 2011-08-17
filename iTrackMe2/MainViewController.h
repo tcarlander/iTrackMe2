@@ -9,11 +9,14 @@
 #import "FlipsideViewController.h"
 #import "MyCLController.h"
 #import <CoreData/CoreData.h>
+#import <MapKit/MapKit.h>
+
 
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate, MyCLControllerDelegate>{
     MyCLController *locationController;
     IBOutlet UILabel *locationLabel;
     IBOutlet UIButton *statusLabel;
+    MKMapView *TheMap;
 }
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
@@ -26,5 +29,7 @@
 
 - (IBAction)showInfo:(id)sender;
 - (IBAction)locationToggle:(id)sender;
+- (IBAction)uploadPhoto:(id)sender;
+@property (strong, nonatomic) IBOutlet MKMapView *TheMap;
 
 @end

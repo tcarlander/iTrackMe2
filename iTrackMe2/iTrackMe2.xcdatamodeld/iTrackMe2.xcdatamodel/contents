@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="858" systemVersion="11B26" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Icons">
+        <attribute name="IconID" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Location">
         <attribute name="Altitude" optional="YES" attributeType="Double" defaultValueString="0.0"/>
         <attribute name="Angle" optional="YES" attributeType="Double" defaultValueString="0.0"/>
@@ -10,8 +13,10 @@
         <attribute name="Longitude" optional="YES" attributeType="Double" defaultValueString="0.0"/>
         <attribute name="Speed" optional="YES" attributeType="Double" defaultValueString="0.0"/>
         <attribute name="TripID" optional="YES" attributeType="String"/>
+        <attribute name="uploaded" optional="YES" attributeType="Boolean"/>
     </entity>
     <elements>
-        <element name="Location" positionX="160" positionY="192" width="128" height="180"/>
+        <element name="Location" positionX="160" positionY="192" width="128" height="195"/>
+        <element name="Icons" positionX="160" positionY="192" width="128" height="60"/>
     </elements>
 </model>

@@ -21,6 +21,7 @@
 		2818193913FB9C70007F4D44 /* FlipsideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2818193713FB9C70007F4D44 /* FlipsideViewController.xib */; };
 		2818194113FB9C9D007F4D44 /* MyCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2818194013FB9C9D007F4D44 /* MyCLController.m */; };
 		2818194313FB9CDE007F4D44 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2818194213FB9CDE007F4D44 /* CoreLocation.framework */; };
+		287A54EC13FBE3ED001CFEEC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287A54EB13FBE3ED001CFEEC /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		2818194013FB9C9D007F4D44 /* MyCLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCLController.m; path = ../../iTrackMe/iTrackMe/MyCLController.m; sourceTree = "<group>"; };
 		2818194213FB9CDE007F4D44 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2818194813FBC156007F4D44 /* fells_loop.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = fells_loop.gpx; sourceTree = "<group>"; };
+		287A54EB13FBE3ED001CFEEC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				287A54EC13FBE3ED001CFEEC /* MapKit.framework in Frameworks */,
 				2818194313FB9CDE007F4D44 /* CoreLocation.framework in Frameworks */,
 				2818191713FB9C70007F4D44 /* UIKit.framework in Frameworks */,
 				2818191913FB9C70007F4D44 /* Foundation.framework in Frameworks */,
@@ -67,7 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				2818194813FBC156007F4D44 /* fells_loop.gpx */,
-				2818194213FB9CDE007F4D44 /* CoreLocation.framework */,
 				2818191C13FB9C70007F4D44 /* iTrackMe2 */,
 				2818191513FB9C70007F4D44 /* Frameworks */,
 				2818191313FB9C70007F4D44 /* Products */,
@@ -85,6 +87,8 @@
 		2818191513FB9C70007F4D44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				287A54EB13FBE3ED001CFEEC /* MapKit.framework */,
+				2818194213FB9CDE007F4D44 /* CoreLocation.framework */,
 				2818191613FB9C70007F4D44 /* UIKit.framework */,
 				2818191813FB9C70007F4D44 /* Foundation.framework */,
 				2818191A13FB9C70007F4D44 /* CoreData.framework */,
@@ -322,6 +326,7 @@
 				2818193E13FB9C71007F4D44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
