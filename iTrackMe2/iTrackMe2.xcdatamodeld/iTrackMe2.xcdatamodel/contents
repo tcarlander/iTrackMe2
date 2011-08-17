@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="858" systemVersion="11B26" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Location">
+        <attribute name="Altitude" optional="YES" attributeType="Double" defaultValueString="0.0"/>
+        <attribute name="Angle" optional="YES" attributeType="Double" defaultValueString="0.0"/>
+        <attribute name="Comment" optional="YES" attributeType="String"/>
+        <attribute name="DateOccured" optional="YES" attributeType="Double" defaultValueString="0.0"/>
+        <attribute name="IconID" optional="YES" attributeType="String"/>
+        <attribute name="Latitude" optional="YES" attributeType="Double" defaultValueString="0.0"/>
+        <attribute name="Longitude" optional="YES" attributeType="Double" defaultValueString="0.0"/>
+        <attribute name="Speed" optional="YES" attributeType="Double" defaultValueString="0.0"/>
+        <attribute name="TripID" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Location" positionX="160" positionY="192" width="128" height="180"/>
+    </elements>
 </model>

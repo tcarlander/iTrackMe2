@@ -34,6 +34,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    locationController = [[MyCLController alloc] init];
+    locationController.delegate = self;
+    [locationController.locationManager startUpdatingLocation];
+    locationController.running = TRUE;
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -104,6 +108,25 @@
         } else {
             [self.flipsidePopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         }
+    }
+}
+
+- (void)locationUpdate:(CLLocation *)location {
+    locationLabel.text = [location description];
+}
+
+- (void)locationError:(NSError *)error {
+    locationLabel.text = [error description];
+}
+- (IBAction)locationToggle:(id)sender{
+    if (locationController.running){
+        [locationController locationManagerStop];
+        [statusLabel setTitle:@"Start" forState:UIControlStateNormal] ; 
+        
+    }else{
+        [locationController locationManagerStart];
+        [statusLabel setTitle:@"Stop" forState:UIControlStateNormal] ; 
+
     }
 }
 

@@ -19,6 +19,8 @@
 		2818193313FB9C70007F4D44 /* MainViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2818193113FB9C70007F4D44 /* MainViewController_iPhone.xib */; };
 		2818193613FB9C70007F4D44 /* MainViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2818193413FB9C70007F4D44 /* MainViewController_iPad.xib */; };
 		2818193913FB9C70007F4D44 /* FlipsideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2818193713FB9C70007F4D44 /* FlipsideViewController.xib */; };
+		2818194113FB9C9D007F4D44 /* MyCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2818194013FB9C9D007F4D44 /* MyCLController.m */; };
+		2818194313FB9CDE007F4D44 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2818194213FB9CDE007F4D44 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,20 +28,24 @@
 		2818191613FB9C70007F4D44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2818191813FB9C70007F4D44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2818191A13FB9C70007F4D44 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		2818191E13FB9C70007F4D44 /* iTrackMe2-Info.plist */ = {isa = PBXFileReference; path = "iTrackMe2-Info.plist"; sourceTree = "<group>"; };
+		2818191E13FB9C70007F4D44 /* iTrackMe2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iTrackMe2-Info.plist"; sourceTree = "<group>"; };
 		2818192013FB9C70007F4D44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2818192213FB9C70007F4D44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2818192413FB9C70007F4D44 /* iTrackMe2-Prefix.pch */ = {isa = PBXFileReference; path = "iTrackMe2-Prefix.pch"; sourceTree = "<group>"; };
-		2818192513FB9C70007F4D44 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		2818192413FB9C70007F4D44 /* iTrackMe2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iTrackMe2-Prefix.pch"; sourceTree = "<group>"; };
+		2818192513FB9C70007F4D44 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2818192613FB9C70007F4D44 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2818192913FB9C70007F4D44 /* iTrackMe2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iTrackMe2.xcdatamodel; sourceTree = "<group>"; };
-		2818192B13FB9C70007F4D44 /* MainViewController.h */ = {isa = PBXFileReference; path = MainViewController.h; sourceTree = "<group>"; };
+		2818192B13FB9C70007F4D44 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		2818192C13FB9C70007F4D44 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		2818192E13FB9C70007F4D44 /* FlipsideViewController.h */ = {isa = PBXFileReference; path = FlipsideViewController.h; sourceTree = "<group>"; };
+		2818192E13FB9C70007F4D44 /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
 		2818192F13FB9C70007F4D44 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
 		2818193213FB9C70007F4D44 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainViewController_iPhone.xib; sourceTree = "<group>"; };
 		2818193513FB9C70007F4D44 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainViewController_iPad.xib; sourceTree = "<group>"; };
 		2818193813FB9C70007F4D44 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FlipsideViewController.xib; sourceTree = "<group>"; };
+		2818193F13FB9C9D007F4D44 /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCLController.h; path = ../../iTrackMe/iTrackMe/MyCLController.h; sourceTree = "<group>"; };
+		2818194013FB9C9D007F4D44 /* MyCLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCLController.m; path = ../../iTrackMe/iTrackMe/MyCLController.m; sourceTree = "<group>"; };
+		2818194213FB9CDE007F4D44 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2818194813FBC156007F4D44 /* fells_loop.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = fells_loop.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2818194313FB9CDE007F4D44 /* CoreLocation.framework in Frameworks */,
 				2818191713FB9C70007F4D44 /* UIKit.framework in Frameworks */,
 				2818191913FB9C70007F4D44 /* Foundation.framework in Frameworks */,
 				2818191B13FB9C70007F4D44 /* CoreData.framework in Frameworks */,
@@ -59,6 +66,8 @@
 		2818190713FB9C70007F4D44 = {
 			isa = PBXGroup;
 			children = (
+				2818194813FBC156007F4D44 /* fells_loop.gpx */,
+				2818194213FB9CDE007F4D44 /* CoreLocation.framework */,
 				2818191C13FB9C70007F4D44 /* iTrackMe2 */,
 				2818191513FB9C70007F4D44 /* Frameworks */,
 				2818191313FB9C70007F4D44 /* Products */,
@@ -86,6 +95,8 @@
 		2818191C13FB9C70007F4D44 /* iTrackMe2 */ = {
 			isa = PBXGroup;
 			children = (
+				2818193F13FB9C9D007F4D44 /* MyCLController.h */,
+				2818194013FB9C9D007F4D44 /* MyCLController.m */,
 				2818192513FB9C70007F4D44 /* AppDelegate.h */,
 				2818192613FB9C70007F4D44 /* AppDelegate.m */,
 				2818192B13FB9C70007F4D44 /* MainViewController.h */,
@@ -181,6 +192,7 @@
 				2818192A13FB9C70007F4D44 /* iTrackMe2.xcdatamodeld in Sources */,
 				2818192D13FB9C70007F4D44 /* MainViewController.m in Sources */,
 				2818193013FB9C70007F4D44 /* FlipsideViewController.m in Sources */,
+				2818194113FB9C9D007F4D44 /* MyCLController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
