@@ -3,7 +3,7 @@
 //  iTrackMe2
 //
 //  Created by Tobias Carlander on 17/08/2011.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 Tobias Carlander. All rights reserved.
 //
 
 #import "FlipsideViewController.h"

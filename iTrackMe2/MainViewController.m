@@ -3,7 +3,7 @@
 //  iTrackMe2
 //
 //  Created by Tobias Carlander on 17/08/2011.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 Tobias Carlander. All rights reserved.
 //
 
 #import "MainViewController.h"
@@ -114,7 +114,7 @@
 }
 
 - (void)locationUpdate:(CLLocation *)location {
-    locationLabel.text = [location description];
+    locationLabel.text =  [NSString stringWithFormat:@"%g %g",location.coordinate.latitude,location.coordinate.longitude] ;
     [TheMap setShowsUserLocation:YES];
     MKCoordinateRegion region;
 	region.center=location.coordinate;
