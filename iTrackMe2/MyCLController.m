@@ -11,7 +11,7 @@
 @implementation MyCLController
 
 @synthesize locationManager;
-@synthesize delegate;
+@synthesize  delegate = _delegate;
 @synthesize running;
 
 

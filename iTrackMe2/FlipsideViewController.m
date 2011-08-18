@@ -10,7 +10,7 @@
 
 @implementation FlipsideViewController
 
-@synthesize delegate = _delegate;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

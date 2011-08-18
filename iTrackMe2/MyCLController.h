@@ -18,11 +18,11 @@
 
 @interface MyCLController : NSObject <CLLocationManagerDelegate> {
 	CLLocationManager *locationManager;
-    __weak id delegate;
+    id delegate;
 }
 
 @property (nonatomic, retain) CLLocationManager *locationManager;
-@property (weak) id  delegate;
+@property (unsafe_unretained) id  delegate;
 @property (nonatomic) BOOL running;
 
 - (void)locationManager:(CLLocationManager *)manager

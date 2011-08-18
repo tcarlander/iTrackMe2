@@ -3,7 +3,7 @@
     <entity name="Icons">
         <attribute name="IconID" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="Location">
+    <entity name="Location" representedClassName="Location">
         <attribute name="Altitude" optional="YES" attributeType="Double" defaultValueString="0.0"/>
         <attribute name="Angle" optional="YES" attributeType="Double" defaultValueString="0.0"/>
         <attribute name="Comment" optional="YES" attributeType="String"/>
@@ -16,7 +16,7 @@
         <attribute name="uploaded" optional="YES" attributeType="Boolean"/>
     </entity>
     <elements>
-        <element name="Location" positionX="160" positionY="192" width="128" height="195"/>
         <element name="Icons" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="Location" positionX="160" positionY="192" width="128" height="195"/>
     </elements>
 </model>

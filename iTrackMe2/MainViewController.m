@@ -39,6 +39,7 @@
     locationController.delegate = self;
     [locationController.locationManager startUpdatingLocation];
     locationController.running = TRUE;
+    [TheMap setShowsUserLocation:YES];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -115,7 +116,6 @@
 
 - (void)locationUpdate:(CLLocation *)location {
     locationLabel.text =  [NSString stringWithFormat:@"%g %g",location.coordinate.latitude,location.coordinate.longitude] ;
-    [TheMap setShowsUserLocation:YES];
     MKCoordinateRegion region;
 	region.center=location.coordinate;
     MKCoordinateSpan span;
@@ -131,19 +131,28 @@
     locationLabel.text = [error description];
 }
 - (IBAction)locationToggle:(id)sender{
-    if (locationController.running){
-        [locationController locationManagerStop];
-        [statusLabel setTitle:@"Start" forState:UIControlStateNormal] ; 
-        
-    }else{
+    if (!locationController.running){
         [locationController locationManagerStart];
         [statusLabel setTitle:@"Stop" forState:UIControlStateNormal] ; 
-
+        
+    }else{
+        [locationController locationManagerStop];
+        [statusLabel setTitle:@"Start" forState:UIControlStateNormal] ; 
     }
 }
 
 
 - (IBAction)uploadPhoto:(id)sender{
+    UIImagePickerControllerSourceType type = UIImagePickerControllerSourceTypePhotoLibrary;
+    BOOL ok = [UIImagePickerController isSourceTypeAvailable:type];
+    if (!ok) {
+        NSLog(@"alas");
+        return; }
+    UIImagePickerController* picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = type;
+    picker.mediaTypes =[UIImagePickerController availableMediaTypesForSourceType:type];
+    picker.delegate = self;
+    [self presentModalViewController:picker animated:YES];
     
 }
 
