@@ -9,10 +9,13 @@
 #import "MainViewController.h"
 
 @implementation MainViewController
+@synthesize uploadPhotoButton;
+@synthesize cameraButton;
+@synthesize startStopButton;
 @synthesize TheMap;
-
 @synthesize managedObjectContext = _managedObjectContext;
-@synthesize flipsidePopoverController = _flipsidePopoverController;
+
+
 
 - (id)initWithCoder:(NSCoder *)coder
 {
@@ -39,13 +42,19 @@
     locationController.delegate = self;
     [locationController.locationManager startUpdatingLocation];
     locationController.running = TRUE;
-    [TheMap setShowsUserLocation:YES];
-	// Do any additional setup after loading the view, typically from a nib.
+    if (_managedObjectContext == nil) 
+    { 
+        _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext] ; 
+        NSLog(@"After managedObjectContext: %@",  _managedObjectContext);
+    }
 }
 
 - (void)viewDidUnload
 {
     [self setTheMap:nil];
+    [self setUploadPhotoButton:nil];
+    [self setCameraButton:nil];
+    [self setStartStopButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -81,39 +90,6 @@
     }
 }
 
-#pragma mark - Flipside View Controller
-
-- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        [self dismissModalViewControllerAnimated:YES];
-    } else {
-        [self.flipsidePopoverController dismissPopoverAnimated:YES];
-    }
-}
-
-- (IBAction)showInfo:(id)sender
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        FlipsideViewController *controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideViewController" bundle:nil];
-        controller.delegate = self;
-        controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        [self presentModalViewController:controller animated:YES];
-    } else {
-        if (!self.flipsidePopoverController) {
-            FlipsideViewController *controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideViewController" bundle:nil];
-            controller.delegate = self;
-            
-            self.flipsidePopoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
-        }
-        if ([self.flipsidePopoverController isPopoverVisible]) {
-            [self.flipsidePopoverController dismissPopoverAnimated:YES];
-        } else {
-            [self.flipsidePopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-        }
-    }
-}
-
 - (void)locationUpdate:(CLLocation *)location {
     locationLabel.text =  [NSString stringWithFormat:@"%g %g",location.coordinate.latitude,location.coordinate.longitude] ;
     MKCoordinateRegion region;
@@ -122,7 +98,7 @@
 	span.latitudeDelta=.005;
 	span.longitudeDelta=.005;
 	region.span=span;
-    
+    [self addEvent];
 	[TheMap setRegion:region animated:TRUE];
     
 }
@@ -131,14 +107,15 @@
     locationLabel.text = [error description];
 }
 - (IBAction)locationToggle:(id)sender{
+
     if (!locationController.running){
-        [locationController locationManagerStart];
-        [statusLabel setTitle:@"Stop" forState:UIControlStateNormal] ; 
-        
+        startStopButton.title=@"Stop"; 
+        [TheMap setShowsUserLocation:YES];
     }else{
-        [locationController locationManagerStop];
-        [statusLabel setTitle:@"Start" forState:UIControlStateNormal] ; 
+        startStopButton.title=@"Start"; 
+        [TheMap setShowsUserLocation:NO];
     }
+    [locationController locationToggler];
 }
 
 
@@ -156,4 +133,26 @@
     
 }
 
+- (void)addEvent
+{
+
+    CLLocation *location = locationController.locationManager.location;
+    Location *dLocation = (Location *)[NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:_managedObjectContext];
+    CLLocationCoordinate2D coordinate = [location coordinate];
+    [dLocation setLatitude:[NSNumber numberWithDouble:coordinate.latitude]];
+    [dLocation setLongitude:[NSNumber numberWithDouble:coordinate.longitude]];
+    [dLocation setDateOccured:[NSDate date]];
+    NSError *error = nil;
+    if (![_managedObjectContext save:&error]) {
+        // Handle the error.
+    }else{
+        NSLog(@"Saved to DB");
+    }
+}
+
+- (IBAction)takePhoto:(id)sender {
+}
+
+- (IBAction)tagLocation:(id)sender {
+}
 @end

@@ -15,15 +15,14 @@
 		2818192713FB9C70007F4D44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2818192613FB9C70007F4D44 /* AppDelegate.m */; };
 		2818192A13FB9C70007F4D44 /* iTrackMe2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2818192813FB9C70007F4D44 /* iTrackMe2.xcdatamodeld */; };
 		2818192D13FB9C70007F4D44 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2818192C13FB9C70007F4D44 /* MainViewController.m */; };
-		2818193013FB9C70007F4D44 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2818192F13FB9C70007F4D44 /* FlipsideViewController.m */; };
 		2818193313FB9C70007F4D44 /* MainViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2818193113FB9C70007F4D44 /* MainViewController_iPhone.xib */; };
 		2818193613FB9C70007F4D44 /* MainViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2818193413FB9C70007F4D44 /* MainViewController_iPad.xib */; };
-		2818193913FB9C70007F4D44 /* FlipsideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2818193713FB9C70007F4D44 /* FlipsideViewController.xib */; };
 		2818194313FB9CDE007F4D44 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2818194213FB9CDE007F4D44 /* CoreLocation.framework */; };
 		28395E9E13FCF88300F04B7B /* MyCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28395E9D13FCF88300F04B7B /* MyCLController.m */; };
 		28395EA013FD108600F04B7B /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 28395E9F13FD108600F04B7B /* Location.gpx */; };
 		28395EA313FD259200F04B7B /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 28395EA213FD259200F04B7B /* Location.m */; };
 		287A54EC13FBE3ED001CFEEC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287A54EB13FBE3ED001CFEEC /* MapKit.framework */; };
+		2886605914011C9300B6EA0A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2886605814011C9300B6EA0A /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,11 +39,8 @@
 		2818192913FB9C70007F4D44 /* iTrackMe2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iTrackMe2.xcdatamodel; sourceTree = "<group>"; };
 		2818192B13FB9C70007F4D44 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		2818192C13FB9C70007F4D44 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		2818192E13FB9C70007F4D44 /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
-		2818192F13FB9C70007F4D44 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
 		2818193213FB9C70007F4D44 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainViewController_iPhone.xib; sourceTree = "<group>"; };
 		2818193513FB9C70007F4D44 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainViewController_iPad.xib; sourceTree = "<group>"; };
-		2818193813FB9C70007F4D44 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FlipsideViewController.xib; sourceTree = "<group>"; };
 		2818194213FB9CDE007F4D44 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2818194813FBC156007F4D44 /* fells_loop.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = fells_loop.gpx; sourceTree = "<group>"; };
 		28395E9C13FCF88300F04B7B /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCLController.h; sourceTree = "<group>"; };
@@ -53,6 +49,7 @@
 		28395EA113FD259200F04B7B /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		28395EA213FD259200F04B7B /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		287A54EB13FBE3ED001CFEEC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2886605814011C9300B6EA0A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,11 +108,8 @@
 				28395E9D13FCF88300F04B7B /* MyCLController.m */,
 				2818192B13FB9C70007F4D44 /* MainViewController.h */,
 				2818192C13FB9C70007F4D44 /* MainViewController.m */,
-				2818192E13FB9C70007F4D44 /* FlipsideViewController.h */,
-				2818192F13FB9C70007F4D44 /* FlipsideViewController.m */,
 				2818193113FB9C70007F4D44 /* MainViewController_iPhone.xib */,
 				2818193413FB9C70007F4D44 /* MainViewController_iPad.xib */,
-				2818193713FB9C70007F4D44 /* FlipsideViewController.xib */,
 				2818192813FB9C70007F4D44 /* iTrackMe2.xcdatamodeld */,
 				28395EA113FD259200F04B7B /* Location.h */,
 				28395EA213FD259200F04B7B /* Location.m */,
@@ -127,6 +121,7 @@
 		2818191D13FB9C70007F4D44 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2886605814011C9300B6EA0A /* Settings.bundle */,
 				2818191E13FB9C70007F4D44 /* iTrackMe2-Info.plist */,
 				2818191F13FB9C70007F4D44 /* InfoPlist.strings */,
 				2818192213FB9C70007F4D44 /* main.m */,
@@ -188,8 +183,8 @@
 				2818192113FB9C70007F4D44 /* InfoPlist.strings in Resources */,
 				2818193313FB9C70007F4D44 /* MainViewController_iPhone.xib in Resources */,
 				2818193613FB9C70007F4D44 /* MainViewController_iPad.xib in Resources */,
-				2818193913FB9C70007F4D44 /* FlipsideViewController.xib in Resources */,
 				28395EA013FD108600F04B7B /* Location.gpx in Resources */,
+				2886605914011C9300B6EA0A /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +199,6 @@
 				2818192713FB9C70007F4D44 /* AppDelegate.m in Sources */,
 				2818192A13FB9C70007F4D44 /* iTrackMe2.xcdatamodeld in Sources */,
 				2818192D13FB9C70007F4D44 /* MainViewController.m in Sources */,
-				2818193013FB9C70007F4D44 /* FlipsideViewController.m in Sources */,
 				28395E9E13FCF88300F04B7B /* MyCLController.m in Sources */,
 				28395EA313FD259200F04B7B /* Location.m in Sources */,
 			);
@@ -237,14 +231,6 @@
 			name = MainViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
-		2818193713FB9C70007F4D44 /* FlipsideViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2818193813FB9C70007F4D44 /* en */,
-			);
-			name = FlipsideViewController.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -254,7 +240,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tobias Carlander (N88F3TYFRG)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -269,6 +255,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1CAF0F41-7C42-4AB6-9907-DCDE994ABCB5";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -280,7 +267,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tobias Carlander (N88F3TYFRG)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -289,6 +276,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1CAF0F41-7C42-4AB6-9907-DCDE994ABCB5";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

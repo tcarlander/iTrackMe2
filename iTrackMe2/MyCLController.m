@@ -54,4 +54,11 @@
     running = TRUE;
 }
 
+-(void) locationToggler{
+    if (!self.running){
+        [self locationManagerStart];
+    }else{
+        [self locationManagerStop];
+    }
+}
 @end

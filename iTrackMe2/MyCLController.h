@@ -34,6 +34,6 @@
 
 -(void)locationManagerStop;
 -(void)locationManagerStart;                 
-
+-(void) locationToggler;
 
 @end

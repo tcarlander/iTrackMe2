@@ -6,13 +6,16 @@
 //  Copyright (c) 2011 Tobias Carlander. All rights reserved.
 //
 
-#import "FlipsideViewController.h"
+#import "AppDelegate.h"
+
 #import "MyCLController.h"
 #import <CoreData/CoreData.h>
 #import <MapKit/MapKit.h>
+#import <UIKit/UIImagePickerController.h>
 
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, MyCLControllerDelegate>{
+
+@interface MainViewController : UIViewController < MyCLControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
     MyCLController *locationController;
     IBOutlet UILabel *locationLabel;
     IBOutlet UIButton *statusLabel;
@@ -20,16 +23,23 @@
 }
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *uploadPhotoButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *startStopButton;
+@property (strong, nonatomic) IBOutlet MKMapView *TheMap;
 
-@property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
 
 
+//- (IBAction)showInfo:(id)sender;
+- (IBAction)locationToggle:(id)sender;
+- (IBAction)uploadPhoto:(id)sender;
+- (IBAction)takePhoto:(id)sender;
+- (IBAction)tagLocation:(id)sender;
+
+
+- (void)addEvent;
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
 
-- (IBAction)showInfo:(id)sender;
-- (IBAction)locationToggle:(id)sender;
-- (IBAction)uploadPhoto:(id)sender;
-@property (strong, nonatomic) IBOutlet MKMapView *TheMap;
 
 @end
