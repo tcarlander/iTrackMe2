@@ -24,4 +24,8 @@
 
 @property (strong, nonatomic) MainViewController *mainViewController;
 
+@property (strong, nonatomic) NSString * userName;
+@property (strong,nonatomic) NSString * serverURL;
+
+
 @end

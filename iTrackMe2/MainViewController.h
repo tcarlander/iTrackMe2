@@ -15,6 +15,7 @@
 
 
 @interface MainViewController : UIViewController < MyCLControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIPopoverControllerDelegate>{
+    AppDelegate *appDelegate;
     MyCLController *locationController;
     IBOutlet UILabel *locationLabel;
     IBOutlet UIButton *statusLabel;
@@ -43,6 +44,6 @@
 - (void)sendData;
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
-
+- (BOOL)pushObject:(Location *)location;
 
 @end

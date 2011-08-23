@@ -5,10 +5,12 @@
 	<key>PreferenceSpecifiers</key>
 	<array>
 		<dict>
-			<key>Title</key>
-			<string>Group</string>
 			<key>Type</key>
-			<string>PSGroupSpecifier</string>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>User Name</string>
+			<key>Key</key>
+			<string>userName</string>
 		</dict>
 		<dict>
 			<key>AutocapitalizationType</key>
@@ -16,7 +18,7 @@
 			<key>AutocorrectionType</key>
 			<string>No</string>
 			<key>DefaultValue</key>
-			<string></string>
+			<string>http://10.11.208.20/trackme</string>
 			<key>IsSecure</key>
 			<false/>
 			<key>Key</key>

@@ -19,12 +19,14 @@
 
 
 
+
 - (id)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];
     if (self) {
         id delegate = [[UIApplication sharedApplication] delegate];
         self.managedObjectContext = [delegate managedObjectContext];
+        
     }
     return self;
 }
@@ -40,6 +42,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     locationController = [[MyCLController alloc] init];
     locationController.delegate = self;
     [locationController.locationManager startUpdatingLocation];
@@ -162,14 +165,8 @@
 didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     [picker dismissModalViewControllerAnimated:YES];
-    
-    // Edited image works great (if you allowed editing)
-    //myUIImageView.image = [info objectForKey:UIImagePickerControllerEditedImage];
-    // AND the original image works great
-   // myUIImageView.image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    // AND do whatever you want with it, (NSDictionary *)info is fine now
-    UIImage *myImage = [info objectForKey:UIImagePickerControllerEditedImage];
-    NSLog(@"Popped");
+    UIImage *myImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    NSLog(@"Popped %@", myImage.size.width);
         
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -203,7 +200,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [dLocation setComment:@""];
     [dLocation setIconID:@"1"];
     [dLocation setSpeed:[NSNumber numberWithDouble:location.speed]];
-    NSLog(@"%@",location.speed);
     [dLocation setUploaded:[NSNumber numberWithInt:0]];
     NSError *error = nil;
     if (![[self managedObjectContext] save:&error]) {
@@ -226,15 +222,59 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     NSArray *fobjects = [moc executeFetchRequest:fetchRequest error:&error];
     for ( ob in fobjects) {
         Location *dLocation = (Location *) ob;
-        [dLocation setUploaded:[NSNumber numberWithInt:1]];
-        NSError *error = nil;
-        if (![[self managedObjectContext] save:&error]) {
-            // Handle the error.
-        }else{
-            NSLog(@"Changed %@", dLocation.Speed);
+        
+        if([self pushObject:dLocation]){
+            [dLocation setUploaded:[NSNumber numberWithInt:1]];
+            
+            NSError *error = nil;
+            if (![[self managedObjectContext] save:&error]) {
+                
+            }else{
+                NSLog(@"Changed %@", dLocation.Speed);
+            }
+            
         }
     }
-    NSLog(@"DBing");
+//    NSLog(@"DBing");
+}
+-(BOOL)pushObject:(Location *)location
+{
+    // construct url and send it to server
+    //http://10.11.208.20/trackme/requests.php?a=upload&u=TobiasC&p=wfpdubai&lat=42.443904&long=-71.122044&do=2011-08-23 12:23:30 +0000&tn=TobiasC&alt=0&ang=&sp=&db=8
+
+    // /trackme/requests.php?a=upload&u=wgonzalez&p=wfpdubai&lat=25.18511038&long=55.29178735&do=2011-2-3%2013:12:3&tn=wgonzalez&alt=7&ang=&sp=&db=8
+    // %@requests.php?a=upload&u=%@&p=wfpdubai&lat=%@&long=%@&do=%@&tn=%@&alt=%@&ang=&sp=&db=8
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    
+    NSString * userName = appDelegate.userName;
+    NSString * baseURL = appDelegate.serverURL;
+    NSString * latitde = [NSString stringWithFormat:@"%@", location.Latitude];
+    NSString * longitude = [NSString stringWithFormat:@"%@", location.Longitude];
+//NSString * datedone = [NSString stringWithFormat:@"%@", location.DateOccured];
+    NSString * altitude = [NSString stringWithFormat:@"%@", location.Altitude];
+    NSString * angle = [NSString stringWithFormat:@"%@", location.Angle];
+    NSString *datedone = [dateFormatter stringFromDate:location.DateOccured];   
+    
+    NSString * fullUrl = [NSString stringWithFormat:@"%@requests.php?a=upload&u=%@&p=wfpdubai&lat=%@&long=%@&do=%@&tn=%@&alt=%@&ang=&sp=&db=8"
+                          ,baseURL,userName,latitde,longitude,datedone,userName,altitude,angle];
+    NSLog(fullUrl);
+    fullUrl = [fullUrl stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+    NSURL * serverUrl =  [NSURL URLWithString:fullUrl];
+    NSURLRequest *theRequest=[NSURLRequest requestWithURL:serverUrl
+                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                          timeoutInterval:6.0];
+    NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    if (theConnection) {
+        // Create the NSMutableData to hold the received data.
+        // receivedData is an instance variable declared elsewhere.
+        return TRUE;
+    } else {
+        // Inform the user that the connection failed.
+        return FALSE;
+    }
+    return TRUE;
 }
 
 - (IBAction)takePhoto:(id)sender {
