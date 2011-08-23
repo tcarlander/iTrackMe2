@@ -2,7 +2,7 @@
 //  Location.h
 //  iTrackMe2
 //
-//  Created by Tobias Carlander on 18/08/2011.
+//  Created by Tobias Carlander on 23/08/2011.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -15,7 +15,7 @@
 @property (nonatomic, retain) NSNumber * Altitude;
 @property (nonatomic, retain) NSNumber * Angle;
 @property (nonatomic, retain) NSString * Comment;
-@property (nonatomic, retain) NSNumber * DateOccured;
+@property (nonatomic, retain) NSDate * DateOccured;
 @property (nonatomic, retain) NSString * IconID;
 @property (nonatomic, retain) NSNumber * Latitude;
 @property (nonatomic, retain) NSNumber * Longitude;

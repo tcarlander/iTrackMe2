@@ -20,7 +20,8 @@
 		2818194313FB9CDE007F4D44 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2818194213FB9CDE007F4D44 /* CoreLocation.framework */; };
 		28395E9E13FCF88300F04B7B /* MyCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28395E9D13FCF88300F04B7B /* MyCLController.m */; };
 		28395EA013FD108600F04B7B /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 28395E9F13FD108600F04B7B /* Location.gpx */; };
-		28395EA313FD259200F04B7B /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 28395EA213FD259200F04B7B /* Location.m */; };
+		2861CA3114038DB200BF38FF /* Icons.m in Sources */ = {isa = PBXBuildFile; fileRef = 2861CA3014038DB200BF38FF /* Icons.m */; };
+		2861CA3414038DE100BF38FF /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 2861CA3314038DE100BF38FF /* Location.m */; };
 		287A54EC13FBE3ED001CFEEC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287A54EB13FBE3ED001CFEEC /* MapKit.framework */; };
 		2886605914011C9300B6EA0A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2886605814011C9300B6EA0A /* Settings.bundle */; };
 /* End PBXBuildFile section */
@@ -46,10 +47,14 @@
 		28395E9C13FCF88300F04B7B /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCLController.h; sourceTree = "<group>"; };
 		28395E9D13FCF88300F04B7B /* MyCLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCLController.m; sourceTree = "<group>"; };
 		28395E9F13FD108600F04B7B /* Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
-		28395EA113FD259200F04B7B /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
-		28395EA213FD259200F04B7B /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		2861CA2F14038DB200BF38FF /* Icons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Icons.h; sourceTree = "<group>"; };
+		2861CA3014038DB200BF38FF /* Icons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Icons.m; sourceTree = "<group>"; };
+		2861CA3214038DE000BF38FF /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		2861CA3314038DE100BF38FF /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		287A54EB13FBE3ED001CFEEC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2880B0311403805B0081B94D /* iTrackMe 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iTrackMe 2.xcdatamodel"; sourceTree = "<group>"; };
 		2886605814011C9300B6EA0A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		28DF3A1014027B0900503662 /* iTrackMe 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iTrackMe 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,9 +116,11 @@
 				2818193113FB9C70007F4D44 /* MainViewController_iPhone.xib */,
 				2818193413FB9C70007F4D44 /* MainViewController_iPad.xib */,
 				2818192813FB9C70007F4D44 /* iTrackMe2.xcdatamodeld */,
-				28395EA113FD259200F04B7B /* Location.h */,
-				28395EA213FD259200F04B7B /* Location.m */,
+				2861CA2F14038DB200BF38FF /* Icons.h */,
+				2861CA3014038DB200BF38FF /* Icons.m */,
 				2818191D13FB9C70007F4D44 /* Supporting Files */,
+				2861CA3214038DE000BF38FF /* Location.h */,
+				2861CA3314038DE100BF38FF /* Location.m */,
 			);
 			path = iTrackMe2;
 			sourceTree = "<group>";
@@ -200,7 +207,8 @@
 				2818192A13FB9C70007F4D44 /* iTrackMe2.xcdatamodeld in Sources */,
 				2818192D13FB9C70007F4D44 /* MainViewController.m in Sources */,
 				28395E9E13FCF88300F04B7B /* MyCLController.m in Sources */,
-				28395EA313FD259200F04B7B /* Location.m in Sources */,
+				2861CA3114038DB200BF38FF /* Icons.m in Sources */,
+				2861CA3414038DE100BF38FF /* Location.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +342,8 @@
 		2818192813FB9C70007F4D44 /* iTrackMe2.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				2880B0311403805B0081B94D /* iTrackMe 2.xcdatamodel */,
+				28DF3A1014027B0900503662 /* iTrackMe 2.xcdatamodel */,
 				2818192913FB9C70007F4D44 /* iTrackMe2.xcdatamodel */,
 			);
 			currentVersion = 2818192913FB9C70007F4D44 /* iTrackMe2.xcdatamodel */;

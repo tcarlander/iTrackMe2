@@ -30,7 +30,6 @@
            fromLocation:(CLLocation *)oldLocation
 {
     
-    NSLog(@"Location: %f", [newLocation distanceFromLocation:oldLocation]);
     [self.delegate locationUpdate:newLocation];
     
 }
@@ -61,4 +60,6 @@
         [self locationManagerStop];
     }
 }
+
+
 @end

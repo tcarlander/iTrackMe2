@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-
 #import "MyCLController.h"
 #import <CoreData/CoreData.h>
 #import <MapKit/MapKit.h>
@@ -15,7 +14,7 @@
 
 
 
-@interface MainViewController : UIViewController < MyCLControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
+@interface MainViewController : UIViewController < MyCLControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIPopoverControllerDelegate>{
     MyCLController *locationController;
     IBOutlet UILabel *locationLabel;
     IBOutlet UIButton *statusLabel;
@@ -23,6 +22,9 @@
 }
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+
+@property (strong,nonatomic) UIPopoverController *popoverController;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *uploadPhotoButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *startStopButton;
@@ -38,6 +40,7 @@
 
 
 - (void)addEvent;
+- (void)sendData;
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
 

@@ -13,7 +13,9 @@
 @synthesize cameraButton;
 @synthesize startStopButton;
 @synthesize TheMap;
-@synthesize managedObjectContext = _managedObjectContext;
+@synthesize managedObjectContext = __managedObjectContext;
+@synthesize popoverController;
+@synthesize managedObjectModel =  __managedObjectModel;
 
 
 
@@ -42,10 +44,15 @@
     locationController.delegate = self;
     [locationController.locationManager startUpdatingLocation];
     locationController.running = TRUE;
-    if (_managedObjectContext == nil) 
+    if (__managedObjectContext == nil) 
     { 
-        _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext] ; 
-        NSLog(@"After managedObjectContext: %@",  _managedObjectContext);
+        __managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext] ; 
+        NSLog(@"After managedObjectContext: %@",  __managedObjectContext);
+    }
+    if (__managedObjectModel==nil) {
+        
+        __managedObjectModel = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectModel] ; 
+        NSLog(@"After managedObjectContext: %@",  __managedObjectModel);
     }
 }
 
@@ -120,6 +127,11 @@
 
 
 - (IBAction)uploadPhoto:(id)sender{
+    BOOL ran =NO;
+    if (!locationController.running){
+        [locationController locationToggler];
+        ran = YES;
+    }
     UIImagePickerControllerSourceType type = UIImagePickerControllerSourceTypePhotoLibrary;
     BOOL ok = [UIImagePickerController isSourceTypeAvailable:type];
     if (!ok) {
@@ -129,28 +141,104 @@
     picker.sourceType = type;
     picker.mediaTypes =[UIImagePickerController availableMediaTypesForSourceType:type];
     picker.delegate = self;
-    [self presentModalViewController:picker animated:YES];
     
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    {
+        NSLog(@"iPadding");
+        UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:picker];
+        self.popoverController = popover;
+        [self.popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+//        [(UIBarButtonItem *)sender setEnabled:NO];
+    }else{
+    
+    [self presentModalViewController:picker animated:YES];
+    }
+    if(ran){
+        [locationController locationToggler];
+    }
 }
+
+- (void)imagePickerController:(UIImagePickerController *)picker 
+didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    [picker dismissModalViewControllerAnimated:YES];
+    
+    // Edited image works great (if you allowed editing)
+    //myUIImageView.image = [info objectForKey:UIImagePickerControllerEditedImage];
+    // AND the original image works great
+   // myUIImageView.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    // AND do whatever you want with it, (NSDictionary *)info is fine now
+    UIImage *myImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    NSLog(@"Popped");
+        
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    
+    // Dismiss the image selection and close the program
+    
+    [picker dismissModalViewControllerAnimated:YES];
+    NSLog(@"Dissmissed picker");    
+
+}
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)Controller{
+    
+    NSLog(@"Dissmissed picker"); 
+    popoverController=nil;
+       
+}
+
 
 - (void)addEvent
 {
 
     CLLocation *location = locationController.locationManager.location;
-    Location *dLocation = (Location *)[NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:_managedObjectContext];
+    Location *dLocation = (Location *)[NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:[self managedObjectContext]];
     CLLocationCoordinate2D coordinate = [location coordinate];
     [dLocation setLatitude:[NSNumber numberWithDouble:coordinate.latitude]];
     [dLocation setLongitude:[NSNumber numberWithDouble:coordinate.longitude]];
     [dLocation setDateOccured:[NSDate date]];
+    [dLocation setAltitude:[NSNumber numberWithDouble:location.altitude]];
+    [dLocation setAngle:[NSNumber numberWithDouble:location.course]];
+    [dLocation setComment:@""];
+    [dLocation setIconID:@"1"];
+    [dLocation setSpeed:[NSNumber numberWithDouble:location.speed]];
+    NSLog(@"%@",location.speed);
+    [dLocation setUploaded:[NSNumber numberWithInt:0]];
     NSError *error = nil;
-    if (![_managedObjectContext save:&error]) {
+    if (![[self managedObjectContext] save:&error]) {
         // Handle the error.
     }else{
-        NSLog(@"Saved to DB");
+        NSLog(@"Added");
     }
+    
+}
+
+-(void)sendData
+{
+    NSManagedObjectContext *moc =[self managedObjectContext];
+    NSManagedObjectModel *mom = [[moc persistentStoreCoordinator] managedObjectModel];//[self managedObjectModel];
+//    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:moc];
+    NSFetchRequest *fetchRequest = [ mom fetchRequestTemplateForName:@"GetAllNotUploaded"];
+    //[fetchRequest setEntity:entityDescription];
+    NSError *error = nil;
+    NSManagedObject *ob;
+    NSArray *fobjects = [moc executeFetchRequest:fetchRequest error:&error];
+    for ( ob in fobjects) {
+        Location *dLocation = (Location *) ob;
+        [dLocation setUploaded:[NSNumber numberWithInt:1]];
+        NSError *error = nil;
+        if (![[self managedObjectContext] save:&error]) {
+            // Handle the error.
+        }else{
+            NSLog(@"Changed %@", dLocation.Speed);
+        }
+    }
+    NSLog(@"DBing");
 }
 
 - (IBAction)takePhoto:(id)sender {
+    [self sendData];
 }
 
 - (IBAction)tagLocation:(id)sender {

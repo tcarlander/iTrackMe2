@@ -15,9 +15,9 @@
         <attribute name="TripID" optional="YES" attributeType="String"/>
         <attribute name="uploaded" optional="YES" attributeType="Boolean"/>
     </entity>
-    <fetchRequest name="GetAllNotUploaded" entity="Location" predicateString="uploaded != 1"/>
+    <fetchRequest name="GetAllNotUploaded" entity="Location" predicateString="uploaded == 0"/>
     <elements>
-        <element name="Icons" positionX="124" positionY="192" width="128" height="60"/>
-        <element name="Location" positionX="-63" positionY="198" width="128" height="195"/>
+        <element name="Icons" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="Location" positionX="160" positionY="192" width="128" height="195"/>
     </elements>
 </model>
