@@ -16,7 +16,7 @@
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize popoverController;
 @synthesize managedObjectModel =  __managedObjectModel;
-
+@synthesize myQueue;
 
 
 
@@ -57,6 +57,12 @@
         __managedObjectModel = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectModel] ; 
         NSLog(@"After managedObjectContext: %@",  __managedObjectModel);
     }
+    [NSTimer scheduledTimerWithTimeInterval:4
+                                     target:self
+                                   selector:@selector(doData:)
+                                   userInfo:nil
+                                    repeats:NO];
+    myQueue = dispatch_queue_create("com.mycompany.myqueue", 0);
 }
 
 - (void)viewDidUnload
@@ -210,14 +216,17 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
 }
 
--(void)doData
+-(void)doData:(NSTimer *)timer
 {
-    dispatch_queue_t myQueue = dispatch_queue_create("com.mycompany.myqueue", 0);
     
-    
-    
-    dispatch_async(myQueue, ^{[self sendData];
+    dispatch_async([self myQueue], ^{[self sendData];
     });
+    [timer invalidate];
+    [NSTimer scheduledTimerWithTimeInterval:4
+                                     target:self
+                                   selector:@selector(doData:)
+                                   userInfo:nil
+                                    repeats:NO];
 
 }
 
@@ -270,18 +279,23 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     NSString * fullUrl = [NSString stringWithFormat:@"%@requests.php?a=upload&u=%@&p=wfpdubai&lat=%@&long=%@&do=%@&tn=%@&alt=%@&ang=&sp=&db=8"
                           ,baseURL,userName,latitde,longitude,datedone,userName,altitude,angle];
     fullUrl = [fullUrl stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
-    NSLog(@"%@",fullUrl);
+//    NSLog(@"%@",fullUrl);
     NSURL * serverUrl =  [NSURL URLWithString:fullUrl];
-    
+    NSLog(@"%@",serverUrl);
     NSURLRequest *theRequest=[NSURLRequest requestWithURL:serverUrl
-                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                          timeoutInterval:6.0];
-    NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-    if (theConnection) {
+                                              cachePolicy:NSURLCacheStorageNotAllowed
+                                          timeoutInterval:60.0];
+    //NSURLConnection *theConnection=[[NSURLConnection alloc] init];
+    NSError *error = nil;
+    NSURLResponse  *response = nil;
+    NSData *dataReply = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:&response error:&error];
+    NSString * stringReply = (NSString *)[[NSString alloc] initWithData:dataReply encoding:NSUTF8StringEncoding];    
+    NSLog(@"%@",stringReply);
+    if (TRUE) {
         // Create the NSMutableData to hold the received data.
         // receivedData is an instance variable declared elsewhere.
-
-
+        NSLog(@"theConn ok");
+        
         return TRUE;
         
     } else {
@@ -292,7 +306,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 }
 
 - (IBAction)takePhoto:(id)sender {
-    [self doData];
+  //  [self doData];
 }
 
 - (IBAction)tagLocation:(id)sender {

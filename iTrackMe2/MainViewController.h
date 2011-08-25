@@ -16,6 +16,7 @@
 
 @interface MainViewController : UIViewController < MyCLControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIPopoverControllerDelegate>{
     AppDelegate *appDelegate;
+
     MyCLController *locationController;
     IBOutlet UILabel *locationLabel;
     IBOutlet UIButton *statusLabel;
@@ -30,7 +31,7 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *startStopButton;
 @property (strong, nonatomic) IBOutlet MKMapView *TheMap;
-
+@property   dispatch_queue_t myQueue;
 
 
 //- (IBAction)showInfo:(id)sender;
