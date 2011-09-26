@@ -30,6 +30,18 @@
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSSliderSpecifier</string>
+			<key>Key</key>
+			<string>updateTimer</string>
+			<key>DefaultValue</key>
+			<integer>5</integer>
+			<key>MinimumValue</key>
+			<integer>1</integer>
+			<key>MaximumValue</key>
+			<integer>360</integer>
+		</dict>
 	</array>
 	<key>StringsTable</key>
 	<string>Root</string>

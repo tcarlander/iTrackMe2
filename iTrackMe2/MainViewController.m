@@ -46,6 +46,7 @@
     locationController = [[MyCLController alloc] init];
     locationController.delegate = self;
     [locationController.locationManager startUpdatingLocation];
+    [locationController.locationManager startUpdatingHeading];
     locationController.running = TRUE;
     if (__managedObjectContext == nil) 
     { 
@@ -207,22 +208,29 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [dLocation setIconID:@"1"];
     [dLocation setSpeed:[NSNumber numberWithDouble:location.speed]];
     [dLocation setUploaded:[NSNumber numberWithInt:0]];
+    
     NSError *error = nil;
     if (![[self managedObjectContext] save:&error]) {
         // Handle the error.
     }else{
         NSLog(@"Added");
     }
+    dispatch_async([self myQueue], ^{   
+        [self sendData];
+    });
     
 }
 
 -(void)doData:(NSTimer *)timer
 {
-    
-    dispatch_async([self myQueue], ^{[self sendData];
+    int updateTime = [appDelegate.uploadTimerMinutes intValue]*60;
+    // Change uplode timer if on 3G
+    NSLog(@"%i",updateTime);
+    dispatch_async([self myQueue], ^{   
+        [self sendData];
     });
     [timer invalidate];
-    [NSTimer scheduledTimerWithTimeInterval:4
+    [NSTimer scheduledTimerWithTimeInterval:updateTime
                                      target:self
                                    selector:@selector(doData:)
                                    userInfo:nil
@@ -234,7 +242,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 {
     NSManagedObjectContext *moc = [[NSManagedObjectContext alloc] init] ;
     [moc setPersistentStoreCoordinator:[[self managedObjectContext] persistentStoreCoordinator]];
-//    NSManagedObjectContext *moc =[self managedObjectContext];
     NSManagedObjectModel *mom = [[moc persistentStoreCoordinator] managedObjectModel];
     NSFetchRequest *fetchRequest = [ mom fetchRequestTemplateForName:@"GetAllNotUploaded"];
     NSError *error = nil;
@@ -279,27 +286,19 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     NSString * fullUrl = [NSString stringWithFormat:@"%@requests.php?a=upload&u=%@&p=wfpdubai&lat=%@&long=%@&do=%@&tn=%@&alt=%@&ang=&sp=&db=8"
                           ,baseURL,userName,latitde,longitude,datedone,userName,altitude,angle];
     fullUrl = [fullUrl stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
-//    NSLog(@"%@",fullUrl);
     NSURL * serverUrl =  [NSURL URLWithString:fullUrl];
-    NSLog(@"%@",serverUrl);
-    NSURLRequest *theRequest=[NSURLRequest requestWithURL:serverUrl
+    NSURLRequest *theRequest=[
+                              NSURLRequest requestWithURL:serverUrl
                                               cachePolicy:NSURLCacheStorageNotAllowed
-                                          timeoutInterval:60.0];
-    //NSURLConnection *theConnection=[[NSURLConnection alloc] init];
+                                          timeoutInterval:5
+                              ];
     NSError *error = nil;
     NSURLResponse  *response = nil;
     NSData *dataReply = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:&response error:&error];
     NSString * stringReply = (NSString *)[[NSString alloc] initWithData:dataReply encoding:NSUTF8StringEncoding];    
-    NSLog(@"%@",stringReply);
-    if (TRUE) {
-        // Create the NSMutableData to hold the received data.
-        // receivedData is an instance variable declared elsewhere.
-        NSLog(@"theConn ok");
-        
-        return TRUE;
-        
+    if ([stringReply isEqualToString:@"Result:0"]) {
+        return TRUE;        
     } else {
-        // Inform the user that the connection failed.
         return FALSE;
     }
     return TRUE;
@@ -311,4 +310,38 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
 - (IBAction)tagLocation:(id)sender {
 }
+
+/*
+- (BOOL) connectedToNetwork
+{
+    // Create zero addy
+    struct sockaddr_in zeroAddress;
+    bzero(&zeroAddress, sizeof(zeroAddress));
+    zeroAddress.sin_len = sizeof(zeroAddress);
+    zeroAddress.sin_family = AF_INET;
+    
+    // Recover reachability flags
+    SCNetworkReachabilityRef defaultRouteReachability = SCNetworkReachabilityCreateWithAddress(NULL, (struct sockaddr *)&zeroAddress);
+    SCNetworkReachabilityFlags flags;
+    
+    BOOL didRetrieveFlags = SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags);
+    CFRelease(defaultRouteReachability);
+    
+    if (!didRetrieveFlags)
+    {
+        printf("Error. Could not recover network reachability flags\n");
+        return 0;
+    }
+    
+    BOOL isReachable = flags & kSCNetworkFlagsReachable;
+    BOOL needsConnection = flags & kSCNetworkFlagsConnectionRequired;
+    return (isReachable && !needsConnection) ? YES : NO;
+}
+*/
+
+
+
 @end
+
+
+

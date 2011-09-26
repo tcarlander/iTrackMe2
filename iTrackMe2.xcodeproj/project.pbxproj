@@ -22,8 +22,12 @@
 		28395EA013FD108600F04B7B /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 28395E9F13FD108600F04B7B /* Location.gpx */; };
 		2861CA3114038DB200BF38FF /* Icons.m in Sources */ = {isa = PBXBuildFile; fileRef = 2861CA3014038DB200BF38FF /* Icons.m */; };
 		2861CA3414038DE100BF38FF /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 2861CA3314038DE100BF38FF /* Location.m */; };
+		2879019A140BAAF2000872FF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28790199140BAAF2000872FF /* SystemConfiguration.framework */; };
 		287A54EC13FBE3ED001CFEEC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287A54EB13FBE3ED001CFEEC /* MapKit.framework */; };
 		2886605914011C9300B6EA0A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2886605814011C9300B6EA0A /* Settings.bundle */; };
+		28B543F9142A06F100318A72 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B543F8142A06F100318A72 /* Icon.png */; };
+		28B543FC142A06F900318A72 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B543FB142A06F900318A72 /* Icon@2x.png */; };
+		28B543FE142A071400318A72 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B543FD142A071400318A72 /* Icon-72.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,9 +55,13 @@
 		2861CA3014038DB200BF38FF /* Icons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Icons.m; sourceTree = "<group>"; };
 		2861CA3214038DE000BF38FF /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		2861CA3314038DE100BF38FF /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		28790199140BAAF2000872FF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		287A54EB13FBE3ED001CFEEC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2880B0311403805B0081B94D /* iTrackMe 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iTrackMe 2.xcdatamodel"; sourceTree = "<group>"; };
 		2886605814011C9300B6EA0A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		28B543F8142A06F100318A72 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		28B543FB142A06F900318A72 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		28B543FD142A071400318A72 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		28DF3A1014027B0900503662 /* iTrackMe 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iTrackMe 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2879019A140BAAF2000872FF /* SystemConfiguration.framework in Frameworks */,
 				287A54EC13FBE3ED001CFEEC /* MapKit.framework in Frameworks */,
 				2818194313FB9CDE007F4D44 /* CoreLocation.framework in Frameworks */,
 				2818191713FB9C70007F4D44 /* UIKit.framework in Frameworks */,
@@ -76,6 +85,9 @@
 		2818190713FB9C70007F4D44 = {
 			isa = PBXGroup;
 			children = (
+				28B543FD142A071400318A72 /* Icon-72.png */,
+				28B543FB142A06F900318A72 /* Icon@2x.png */,
+				28B543F8142A06F100318A72 /* Icon.png */,
 				28395E9F13FD108600F04B7B /* Location.gpx */,
 				2818194813FBC156007F4D44 /* fells_loop.gpx */,
 				2818191C13FB9C70007F4D44 /* iTrackMe2 */,
@@ -95,6 +107,7 @@
 		2818191513FB9C70007F4D44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				28790199140BAAF2000872FF /* SystemConfiguration.framework */,
 				287A54EB13FBE3ED001CFEEC /* MapKit.framework */,
 				2818194213FB9CDE007F4D44 /* CoreLocation.framework */,
 				2818191613FB9C70007F4D44 /* UIKit.framework */,
@@ -192,6 +205,9 @@
 				2818193613FB9C70007F4D44 /* MainViewController_iPad.xib in Resources */,
 				28395EA013FD108600F04B7B /* Location.gpx in Resources */,
 				2886605914011C9300B6EA0A /* Settings.bundle in Resources */,
+				28B543F9142A06F100318A72 /* Icon.png in Resources */,
+				28B543FC142A06F900318A72 /* Icon@2x.png in Resources */,
+				28B543FE142A071400318A72 /* Icon-72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +278,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "84308091-763E-4EDB-B924-8CAF1B69F86D";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -282,7 +298,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "84308091-763E-4EDB-B924-8CAF1B69F86D";
 				SDKROOT = iphoneos;

@@ -19,6 +19,7 @@
 @synthesize mainViewController = _mainViewController;
 @synthesize userName;
 @synthesize serverURL;
+@synthesize uploadTimerMinutes;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -28,6 +29,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [self setUserName:[defaults stringForKey:@"userName"]];
     [self setServerURL:[defaults stringForKey:@"server_url_preference"]];
+    [self setUploadTimerMinutes:[defaults stringForKey:@"updateTimer"]];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController_iPhone" bundle:nil]; 
     } else {
@@ -66,6 +68,10 @@
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [self setUserName:[defaults stringForKey:@"userName"]];
+    [self setServerURL:[defaults stringForKey:@"server_url_preference"]];
+    [self setUploadTimerMinutes:[defaults stringForKey:@"updateTimer"]];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

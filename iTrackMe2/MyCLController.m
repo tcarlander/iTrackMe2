@@ -44,12 +44,14 @@
 
 {
     [self.locationManager stopUpdatingLocation];
+    [self.locationManager stopUpdatingHeading];
     running = FALSE;
 }
 -(void)locationManagerStart
 
 {
     [self.locationManager startUpdatingLocation];
+    [self.locationManager startUpdatingHeading];    
     running = TRUE;
 }
 
