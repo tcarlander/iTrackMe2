@@ -23,7 +23,8 @@
 - (id)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];
-    if (self) {
+    if (self) 
+    {
         id delegate = [[UIApplication sharedApplication] delegate];
         self.managedObjectContext = [delegate managedObjectContext];
         
@@ -53,7 +54,8 @@
         __managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext] ; 
         NSLog(@"After managedObjectContext: %@",  __managedObjectContext);
     }
-    if (__managedObjectModel==nil) {
+    if (__managedObjectModel==nil) 
+    {
         
         __managedObjectModel = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectModel] ; 
         NSLog(@"After managedObjectContext: %@",  __managedObjectModel);
@@ -100,14 +102,16 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) 
+    {
         return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
     } else {
         return YES;
     }
 }
 
-- (void)locationUpdate:(CLLocation *)location {
+- (void)locationUpdate:(CLLocation *)location 
+{
     locationLabel.text =  [NSString stringWithFormat:@"%g %g",location.coordinate.latitude,location.coordinate.longitude] ;
     MKCoordinateRegion region;
 	region.center=location.coordinate;
@@ -120,12 +124,16 @@
     
 }
 
-- (void)locationError:(NSError *)error {
+- (void)locationError:(NSError *)error 
+{
     locationLabel.text = [error description];
 }
-- (IBAction)locationToggle:(id)sender{
+
+- (IBAction)locationToggle:(id)sender
+{
     
-    if (!locationController.running){
+    if (!locationController.running)
+    {
         startStopButton.title=@"Stop"; 
         [TheMap setShowsUserLocation:YES];
     }else{
@@ -136,20 +144,22 @@
 }
 
 
-- (IBAction)uploadPhoto:(id)sender{
-    BOOL ran =NO;
-    if (!locationController.running){
+- (IBAction)uploadPhoto:(UIBarButtonItem *)sender
+{
+    BOOL ran;
+    if (!locationController.running)
+    {
         [locationController locationToggler];
         ran = YES;
     }
-    UIImagePickerControllerSourceType type = UIImagePickerControllerSourceTypePhotoLibrary;
-    BOOL ok = [UIImagePickerController isSourceTypeAvailable:type];
-    if (!ok) {
+
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) 
+    {
         NSLog(@"alas");
-        return; }
+        return; 
+    }
     UIImagePickerController* picker = [[UIImagePickerController alloc] init];
-    picker.sourceType = type;
-    picker.mediaTypes =[UIImagePickerController availableMediaTypesForSourceType:type];
+    picker.mediaTypes =[UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     picker.delegate = self;
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
@@ -168,12 +178,67 @@
     }
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker 
-didFinishPickingMediaWithInfo:(NSDictionary *)info {
+-(BOOL)pushImageToServer:(UIImage *)imageToPost
+{
+    // Send the dragon to the server....
+//image data now contains image
+    // create request
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];                                    
+    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    [request setHTTPShouldHandleCookies:NO];
+    [request setTimeoutInterval:30];
+    [request setHTTPMethod:@"POST"];
+    NSString *boundary = '12345';
     
+    // set Content-Type in HTTP header
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+    [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
+    
+    // post body
+    NSMutableData *body = [NSMutableData data];
+    
+    // add params (all params are strings)
+    for (NSString *param in _params) {
+        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BoundaryConstant] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", param] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"%@\r\n", [_params objectForKey:param]] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    
+    // add image data
+    NSData *imageData = UIImageJPEGRepresentation(imageToPost, 1.0);
+    if (imageData) {
+        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"image.jpg\"\r\n", FileParamConstant] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithString:@"Content-Type: image/jpeg\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:imageData];
+        [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    
+    [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    // setting the body of the post to the reqeust
+    [request setHTTPBody:body];
+    
+    // set URL
+    [request setURL:requestURL];
+    return NO;
+    
+}
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker 
+didFinishPickingMediaWithInfo:(NSDictionary *)info 
+{
+    BOOL saved = NO;
     [picker dismissModalViewControllerAnimated:YES];
-    UIImage *myImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-    NSLog(@"Popped %@", myImage.size.width);
+    UIImage * myImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    if (myImage) {
+        saved = [self pushImageToServer:myImage];
+    }else{
+        NSLog(@"Popped %@", myImage);
+    }
+    //Do Image save
+
     
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -307,6 +372,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
 - (IBAction)takePhoto:(id)sender {
   //  [self doData];
+    
 }
 
 - (IBAction)tagLocation:(id)sender {
