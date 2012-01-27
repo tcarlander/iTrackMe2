@@ -25,6 +25,8 @@
 		2879019A140BAAF2000872FF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28790199140BAAF2000872FF /* SystemConfiguration.framework */; };
 		287A54EC13FBE3ED001CFEEC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287A54EB13FBE3ED001CFEEC /* MapKit.framework */; };
 		2886605914011C9300B6EA0A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2886605814011C9300B6EA0A /* Settings.bundle */; };
+		28AB9D04146BF2940040AF31 /* 360.png in Resources */ = {isa = PBXBuildFile; fileRef = 28AB9D02146BF2940040AF31 /* 360.png */; };
+		28AB9D05146BF2940040AF31 /* Zero.png in Resources */ = {isa = PBXBuildFile; fileRef = 28AB9D03146BF2940040AF31 /* Zero.png */; };
 		28B543F9142A06F100318A72 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B543F8142A06F100318A72 /* Icon.png */; };
 		28B543FC142A06F900318A72 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B543FB142A06F900318A72 /* Icon@2x.png */; };
 		28B543FE142A071400318A72 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B543FD142A071400318A72 /* Icon-72.png */; };
@@ -65,6 +67,8 @@
 		287A54EB13FBE3ED001CFEEC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2880B0311403805B0081B94D /* iTrackMe 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iTrackMe 2.xcdatamodel"; sourceTree = "<group>"; };
 		2886605814011C9300B6EA0A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		28AB9D02146BF2940040AF31 /* 360.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 360.png; path = iTrackMe2/images/360.png; sourceTree = "<group>"; };
+		28AB9D03146BF2940040AF31 /* Zero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Zero.png; path = iTrackMe2/images/Zero.png; sourceTree = "<group>"; };
 		28B543F8142A06F100318A72 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		28B543FB142A06F900318A72 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		28B543FD142A071400318A72 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 			children = (
 				28B7DF1D1430A68C004FAD97 /* images */,
 				28B543FD142A071400318A72 /* Icon-72.png */,
+				28AB9D02146BF2940040AF31 /* 360.png */,
+				28AB9D03146BF2940040AF31 /* Zero.png */,
 				28B543FB142A06F900318A72 /* Icon@2x.png */,
 				28B543F8142A06F100318A72 /* Icon.png */,
 				28395E9F13FD108600F04B7B /* Location.gpx */,
@@ -241,6 +247,8 @@
 				28B7DF271430A68C004FAD97 /* Icon-Small@2x.png in Resources */,
 				28B7DF281430A68C004FAD97 /* Icon.png in Resources */,
 				28B7DF291430A68C004FAD97 /* Icon@2x.png in Resources */,
+				28AB9D04146BF2940040AF31 /* 360.png in Resources */,
+				28AB9D05146BF2940040AF31 /* Zero.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,13 +299,47 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		280DADCF146BA70F009BE34D /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
+		280DADD0146BA70F009BE34D /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iTrackMe2/iTrackMe2-Prefix.pch";
+				INFOPLIST_FILE = "iTrackMe2/iTrackMe2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Distribution;
+		};
 		2818193A13FB9C70007F4D44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tobias Carlander (N88F3TYFRG)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -312,7 +354,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "84308091-763E-4EDB-B924-8CAF1B69F86D";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -324,7 +366,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tobias Carlander (N88F3TYFRG)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -333,7 +375,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "84308091-763E-4EDB-B924-8CAF1B69F86D";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -372,6 +414,7 @@
 			buildConfigurations = (
 				2818193A13FB9C70007F4D44 /* Debug */,
 				2818193B13FB9C70007F4D44 /* Release */,
+				280DADCF146BA70F009BE34D /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -381,6 +424,7 @@
 			buildConfigurations = (
 				2818193D13FB9C71007F4D44 /* Debug */,
 				2818193E13FB9C71007F4D44 /* Release */,
+				280DADD0146BA70F009BE34D /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

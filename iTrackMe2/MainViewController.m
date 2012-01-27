@@ -223,7 +223,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
 -(void)doData:(NSTimer *)timer
 {
-    int updateTime = [appDelegate.uploadTimerMinutes intValue]*60;
+    /*int updateTime = [appDelegate.uploadTimerMinutes intValue]*60;
     // Change uplode timer if on 3G
     NSLog(@"%i",updateTime);
     dispatch_async([self myQueue], ^{   
@@ -235,7 +235,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                                    selector:@selector(doData:)
                                    userInfo:nil
                                     repeats:NO];
-
+*/
 }
 
 -(void)sendData
@@ -286,6 +286,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     NSString * fullUrl = [NSString stringWithFormat:@"%@requests.php?a=upload&u=%@&p=wfpdubai&lat=%@&long=%@&do=%@&tn=%@&alt=%@&ang=&sp=&db=8"
                           ,baseURL,userName,latitde,longitude,datedone,userName,altitude,angle];
     fullUrl = [fullUrl stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+    NSLog(@"%@",fullUrl);
     NSURL * serverUrl =  [NSURL URLWithString:fullUrl];
     NSURLRequest *theRequest=[
                               NSURLRequest requestWithURL:serverUrl

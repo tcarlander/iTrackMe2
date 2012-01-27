@@ -18,7 +18,7 @@
 			<key>AutocorrectionType</key>
 			<string>No</string>
 			<key>DefaultValue</key>
-			<string>http://10.11.208.20/trackme</string>
+			<string>http://87.201.216.107/trackme/</string>
 			<key>IsSecure</key>
 			<false/>
 			<key>Key</key>
@@ -41,6 +41,10 @@
 			<integer>1</integer>
 			<key>MaximumValue</key>
 			<integer>360</integer>
+			<key>MaximumValueImage</key>
+			<string>360.png</string>
+			<key>MinimumValueImage</key>
+			<string>Zero.png</string>
 		</dict>
 	</array>
 	<key>StringsTable</key>
