@@ -46,8 +46,8 @@
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     locationController = [[MyCLController alloc] init];
     locationController.delegate = self;
-    [locationController.locationManager startUpdatingLocation];
-    [locationController.locationManager startUpdatingHeading];
+   // [locationController.locationManager startUpdatingLocation];
+   // [locationController.locationManager startUpdatingHeading];
     locationController.running = TRUE;
     if (__managedObjectContext == nil) 
     { 
@@ -188,7 +188,7 @@
     [request setHTTPShouldHandleCookies:NO];
     [request setTimeoutInterval:30];
     [request setHTTPMethod:@"POST"];
-    NSString *boundary = '12345';
+    NSString *boundary = @"12345";
     
     // set Content-Type in HTTP header
     NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
@@ -196,7 +196,7 @@
     
     // post body
     NSMutableData *body = [NSMutableData data];
-    
+ /*   
     // add params (all params are strings)
     for (NSString *param in _params) {
         [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BoundaryConstant] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -220,9 +220,8 @@
     [request setHTTPBody:body];
     
     // set URL
-    [request setURL:requestURL];
+    [request setURL:requestURL];*/
     return NO;
-    
 }
 
 

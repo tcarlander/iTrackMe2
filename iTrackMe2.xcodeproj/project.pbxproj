@@ -55,10 +55,10 @@
 		2818193213FB9C70007F4D44 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainViewController_iPhone.xib; sourceTree = "<group>"; };
 		2818193513FB9C70007F4D44 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainViewController_iPad.xib; sourceTree = "<group>"; };
 		2818194213FB9CDE007F4D44 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		2818194813FBC156007F4D44 /* fells_loop.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = fells_loop.gpx; sourceTree = "<group>"; };
+		2818194813FBC156007F4D44 /* fells_loop.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = fells_loop.gpx; path = ../fells_loop.gpx; sourceTree = "<group>"; };
 		28395E9C13FCF88300F04B7B /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCLController.h; sourceTree = "<group>"; };
 		28395E9D13FCF88300F04B7B /* MyCLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCLController.m; sourceTree = "<group>"; };
-		28395E9F13FD108600F04B7B /* Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
+		28395E9F13FD108600F04B7B /* Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Location.gpx; path = ../Location.gpx; sourceTree = "<group>"; };
 		2861CA2F14038DB200BF38FF /* Icons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Icons.h; sourceTree = "<group>"; };
 		2861CA3014038DB200BF38FF /* Icons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Icons.m; sourceTree = "<group>"; };
 		2861CA3214038DE000BF38FF /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
@@ -67,11 +67,11 @@
 		287A54EB13FBE3ED001CFEEC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2880B0311403805B0081B94D /* iTrackMe 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iTrackMe 2.xcdatamodel"; sourceTree = "<group>"; };
 		2886605814011C9300B6EA0A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		28AB9D02146BF2940040AF31 /* 360.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 360.png; path = iTrackMe2/images/360.png; sourceTree = "<group>"; };
-		28AB9D03146BF2940040AF31 /* Zero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Zero.png; path = iTrackMe2/images/Zero.png; sourceTree = "<group>"; };
-		28B543F8142A06F100318A72 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		28B543FB142A06F900318A72 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		28B543FD142A071400318A72 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		28AB9D02146BF2940040AF31 /* 360.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 360.png; path = images/360.png; sourceTree = "<group>"; };
+		28AB9D03146BF2940040AF31 /* Zero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Zero.png; path = images/Zero.png; sourceTree = "<group>"; };
+		28B543F8142A06F100318A72 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
+		28B543FB142A06F900318A72 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
+		28B543FD142A071400318A72 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
 		28B7DF1E1430A68C004FAD97 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		28B7DF1F1430A68C004FAD97 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
 		28B7DF201430A68C004FAD97 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
@@ -102,13 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				28B7DF1D1430A68C004FAD97 /* images */,
-				28B543FD142A071400318A72 /* Icon-72.png */,
-				28AB9D02146BF2940040AF31 /* 360.png */,
-				28AB9D03146BF2940040AF31 /* Zero.png */,
-				28B543FB142A06F900318A72 /* Icon@2x.png */,
-				28B543F8142A06F100318A72 /* Icon.png */,
-				28395E9F13FD108600F04B7B /* Location.gpx */,
-				2818194813FBC156007F4D44 /* fells_loop.gpx */,
 				2818191C13FB9C70007F4D44 /* iTrackMe2 */,
 				2818191513FB9C70007F4D44 /* Frameworks */,
 				2818191313FB9C70007F4D44 /* Products */,
@@ -160,6 +153,13 @@
 		2818191D13FB9C70007F4D44 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				28B543FD142A071400318A72 /* Icon-72.png */,
+				28AB9D02146BF2940040AF31 /* 360.png */,
+				28AB9D03146BF2940040AF31 /* Zero.png */,
+				28B543FB142A06F900318A72 /* Icon@2x.png */,
+				28B543F8142A06F100318A72 /* Icon.png */,
+				28395E9F13FD108600F04B7B /* Location.gpx */,
+				2818194813FBC156007F4D44 /* fells_loop.gpx */,
 				2886605814011C9300B6EA0A /* Settings.bundle */,
 				2818191E13FB9C70007F4D44 /* iTrackMe2-Info.plist */,
 				2818191F13FB9C70007F4D44 /* InfoPlist.strings */,
