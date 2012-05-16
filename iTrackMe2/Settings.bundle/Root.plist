@@ -6,45 +6,53 @@
 	<array>
 		<dict>
 			<key>Type</key>
+			<string>PSSliderSpecifier</string>
+			<key>Key</key>
+			<string>uploadTimerMinutes</string>
+			<key>DefaultValue</key>
+			<integer>0</integer>
+			<key>MinimumValue</key>
+			<integer>0</integer>
+			<key>MaximumValue</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>User Name</string>
+			<string>Device Name</string>
 			<key>Key</key>
 			<string>userName</string>
 		</dict>
 		<dict>
-			<key>AutocapitalizationType</key>
-			<string>None</string>
+			<key>Key</key>
+			<string>server_url_preference</string>
 			<key>AutocorrectionType</key>
 			<string>No</string>
 			<key>DefaultValue</key>
-			<string>http://87.201.216.107/trackme/</string>
+			<string>http://trackme.globalepic.lu/trackme/</string>
 			<key>IsSecure</key>
 			<false/>
-			<key>Key</key>
-			<string>server_url_preference</string>
 			<key>KeyboardType</key>
 			<string>URL</string>
 			<key>Title</key>
 			<string>Server URL</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
 		</dict>
 		<dict>
 			<key>Type</key>
 			<string>PSSliderSpecifier</string>
 			<key>Key</key>
-			<string>updateTimer</string>
+			<string>updateDistance</string>
 			<key>DefaultValue</key>
-			<integer>5</integer>
+			<integer>100</integer>
 			<key>MinimumValue</key>
-			<integer>1</integer>
+			<integer>20</integer>
 			<key>MaximumValue</key>
-			<integer>360</integer>
-			<key>MaximumValueImage</key>
-			<string>360.png</string>
-			<key>MinimumValueImage</key>
-			<string>Zero.png</string>
+			<integer>2000</integer>
 		</dict>
 	</array>
 	<key>StringsTable</key>

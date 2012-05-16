@@ -26,7 +26,7 @@
 
 @property (strong, nonatomic) NSString * userName;
 @property (strong,nonatomic) NSString * serverURL;
-@property  (strong,nonatomic) NSString *   uploadTimerMinutes;
+@property  (strong,nonatomic) NSNumber *   uploadTimerMinutes;
 
 
 @end

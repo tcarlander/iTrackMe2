@@ -25,11 +25,16 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+
+    // Register the preference defaults early.
+    NSDictionary *appDefaults = [NSDictionary
+                                 dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:@"CacheDataAgressively"];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [self setUserName:[defaults stringForKey:@"userName"]];
     [self setServerURL:[defaults stringForKey:@"server_url_preference"]];
-    [self setUploadTimerMinutes:[defaults stringForKey:@"updateTimer"]];
+    [self setUploadTimerMinutes:[defaults objectForKey:@"updateTimer"]];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController_iPhone" bundle:nil]; 
     } else {
@@ -71,7 +76,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [self setUserName:[defaults stringForKey:@"userName"]];
     [self setServerURL:[defaults stringForKey:@"server_url_preference"]];
-    [self setUploadTimerMinutes:[defaults stringForKey:@"updateTimer"]];
+    [self setUploadTimerMinutes:[defaults objectForKey:@"updateTimer"]];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

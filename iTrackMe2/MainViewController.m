@@ -195,7 +195,7 @@
     [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
     
     // post body
-    NSMutableData *body = [NSMutableData data];
+   // NSMutableData *body = [NSMutableData data];
  /*   
     // add params (all params are strings)
     for (NSString *param in _params) {
