@@ -30,12 +30,9 @@
 		28B543F9142A06F100318A72 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B543F8142A06F100318A72 /* Icon.png */; };
 		28B543FC142A06F900318A72 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B543FB142A06F900318A72 /* Icon@2x.png */; };
 		28B543FE142A071400318A72 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B543FD142A071400318A72 /* Icon-72.png */; };
-		28B7DF241430A68C004FAD97 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B7DF1E1430A68C004FAD97 /* Icon-72.png */; };
 		28B7DF251430A68C004FAD97 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B7DF1F1430A68C004FAD97 /* Icon-Small-50.png */; };
 		28B7DF261430A68C004FAD97 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B7DF201430A68C004FAD97 /* Icon-Small.png */; };
 		28B7DF271430A68C004FAD97 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B7DF211430A68C004FAD97 /* Icon-Small@2x.png */; };
-		28B7DF281430A68C004FAD97 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B7DF221430A68C004FAD97 /* Icon.png */; };
-		28B7DF291430A68C004FAD97 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B7DF231430A68C004FAD97 /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -241,12 +238,9 @@
 				28B543F9142A06F100318A72 /* Icon.png in Resources */,
 				28B543FC142A06F900318A72 /* Icon@2x.png in Resources */,
 				28B543FE142A071400318A72 /* Icon-72.png in Resources */,
-				28B7DF241430A68C004FAD97 /* Icon-72.png in Resources */,
 				28B7DF251430A68C004FAD97 /* Icon-Small-50.png in Resources */,
 				28B7DF261430A68C004FAD97 /* Icon-Small.png in Resources */,
 				28B7DF271430A68C004FAD97 /* Icon-Small@2x.png in Resources */,
-				28B7DF281430A68C004FAD97 /* Icon.png in Resources */,
-				28B7DF291430A68C004FAD97 /* Icon@2x.png in Resources */,
 				28AB9D04146BF2940040AF31 /* 360.png in Resources */,
 				28AB9D05146BF2940040AF31 /* Zero.png in Resources */,
 			);
@@ -324,10 +318,14 @@
 		280DADD0146BA70F009BE34D /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTrackMe2/iTrackMe2-Prefix.pch";
 				INFOPLIST_FILE = "iTrackMe2/iTrackMe2-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -385,10 +383,14 @@
 		2818193D13FB9C71007F4D44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTrackMe2/iTrackMe2-Prefix.pch";
 				INFOPLIST_FILE = "iTrackMe2/iTrackMe2-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -397,10 +399,14 @@
 		2818193E13FB9C71007F4D44 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTrackMe2/iTrackMe2-Prefix.pch";
 				INFOPLIST_FILE = "iTrackMe2/iTrackMe2-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

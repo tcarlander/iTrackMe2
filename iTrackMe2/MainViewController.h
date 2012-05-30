@@ -18,7 +18,9 @@
     AppDelegate *appDelegate;
 
     MyCLController *locationController;
-    IBOutlet UILabel *locationLabel;
+    IBOutlet UILabel *locationLabelLat;
+    IBOutlet UILabel *locationLabelLong;
+    IBOutlet UILabel *locationLabelTime;
     IBOutlet UIButton *statusLabel;
     MKMapView *TheMap;
 }

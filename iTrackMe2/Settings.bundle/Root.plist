@@ -30,7 +30,7 @@
 			<key>AutocorrectionType</key>
 			<string>No</string>
 			<key>DefaultValue</key>
-			<string>http://trackme.globalepic.lu/trackme/</string>
+			<string>http://trackme.globalepic.org/trackme/</string>
 			<key>IsSecure</key>
 			<false/>
 			<key>KeyboardType</key>

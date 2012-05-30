@@ -46,9 +46,7 @@
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     locationController = [[MyCLController alloc] init];
     locationController.delegate = self;
-   // [locationController.locationManager startUpdatingLocation];
-   // [locationController.locationManager startUpdatingHeading];
-    locationController.running = TRUE;
+    [locationController locationManagerStart];
     if (__managedObjectContext == nil) 
     { 
         __managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext] ; 
@@ -112,7 +110,10 @@
 
 - (void)locationUpdate:(CLLocation *)location 
 {
-    locationLabel.text =  [NSString stringWithFormat:@"%g %g",location.coordinate.latitude,location.coordinate.longitude] ;
+    locationLabelLat.text =  [NSString stringWithFormat:@"Lat:%g",location.coordinate.latitude] ;
+    locationLabelLong.text =  [NSString stringWithFormat:@"Long: %g",location.coordinate.longitude] ;
+    locationLabelTime.text =  [NSString stringWithFormat:@"Last Update: %@",location.timestamp] ;
+
     MKCoordinateRegion region;
 	region.center=location.coordinate;
     MKCoordinateSpan span;
@@ -126,7 +127,7 @@
 
 - (void)locationError:(NSError *)error 
 {
-    locationLabel.text = [error description];
+    locationLabelLat.text = [error description];
 }
 
 - (IBAction)locationToggle:(id)sender
