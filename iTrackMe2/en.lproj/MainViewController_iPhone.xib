@@ -40,7 +40,7 @@
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUILabel" id="828826885">
 						<reference key="NSNextResponder" ref="883825266"/>
-						<int key="NSvFlags">300</int>
+						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{20, 365}, {112, 24}}</string>
 						<reference key="NSSuperview" ref="883825266"/>
 						<reference key="NSWindow"/>
@@ -72,7 +72,7 @@
 					</object>
 					<object class="IBUILabel" id="115548346">
 						<reference key="NSNextResponder" ref="883825266"/>
-						<int key="NSvFlags">300</int>
+						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{147, 365}, {112, 24}}</string>
 						<reference key="NSSuperview" ref="883825266"/>
 						<reference key="NSWindow"/>
@@ -94,8 +94,8 @@
 					</object>
 					<object class="IBUILabel" id="212794320">
 						<reference key="NSNextResponder" ref="883825266"/>
-						<int key="NSvFlags">300</int>
-						<string key="NSFrame">{{20, 387}, {239, 24}}</string>
+						<int key="NSvFlags">268</int>
+						<string key="NSFrame">{{20, 387}, {280, 24}}</string>
 						<reference key="NSSuperview" ref="883825266"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="115548346"/>
