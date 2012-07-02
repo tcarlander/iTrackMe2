@@ -50,13 +50,10 @@
     if (__managedObjectContext == nil) 
     { 
         __managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext] ; 
-        NSLog(@"After managedObjectContext: %@",  __managedObjectContext);
     }
     if (__managedObjectModel==nil) 
     {
-        
         __managedObjectModel = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectModel] ; 
-        NSLog(@"After managedObjectContext: %@",  __managedObjectModel);
     }
     [NSTimer scheduledTimerWithTimeInterval:4
                                      target:self
@@ -72,6 +69,7 @@
     [self setUploadPhotoButton:nil];
     [self setCameraButton:nil];
     [self setStartStopButton:nil];
+    precisionLable = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -110,9 +108,15 @@
 
 - (void)locationUpdate:(CLLocation *)location 
 {
-    locationLabelLat.text =  [NSString stringWithFormat:@"Lat:%g",location.coordinate.latitude] ;
-    locationLabelLong.text =  [NSString stringWithFormat:@"Long: %g",location.coordinate.longitude] ;
-    locationLabelTime.text =  [NSString stringWithFormat:@"Last Update: %@",location.timestamp] ;
+    CLLocationAccuracy accuracy = location.horizontalAccuracy;
+    CLLocationDegrees latitude = location.coordinate.latitude;
+    CLLocationDegrees longitude = location.coordinate.longitude;
+    NSDate *timeStamp = location.timestamp;
+    
+    locationLabelLat.text =  [NSString stringWithFormat:@"Lat:%g",latitude] ;
+    locationLabelLong.text = [NSString stringWithFormat:@"Long: %g",longitude] ;
+    locationLabelTime.text = [NSString stringWithFormat:@"Last Update: %@",timeStamp] ;
+    precisionLable.text =    [NSString stringWithFormat:@"±%.0fm",accuracy];
 
     MKCoordinateRegion region;
 	region.center=location.coordinate;
@@ -147,7 +151,7 @@
 
 - (IBAction)uploadPhoto:(UIBarButtonItem *)sender
 {
-    BOOL ran;
+    BOOL ran = FALSE;
     if (!locationController.running)
     {
         [locationController locationToggler];
@@ -156,7 +160,6 @@
 
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) 
     {
-        NSLog(@"alas");
         return; 
     }
     UIImagePickerController* picker = [[UIImagePickerController alloc] init];
@@ -234,6 +237,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     UIImage * myImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     if (myImage) {
         saved = [self pushImageToServer:myImage];
+         NSLog(@"Popped %@", saved);
     }else{
         NSLog(@"Popped %@", myImage);
     }
@@ -286,22 +290,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     
 }
 
--(void)doData:(NSTimer *)timer
-{
-    /*int updateTime = [appDelegate.uploadTimerMinutes intValue]*60;
-    // Change uplode timer if on 3G
-    NSLog(@"%i",updateTime);
-    dispatch_async([self myQueue], ^{   
-        [self sendData];
-    });
-    [timer invalidate];
-    [NSTimer scheduledTimerWithTimeInterval:updateTime
-                                     target:self
-                                   selector:@selector(doData:)
-                                   userInfo:nil
-                                    repeats:NO];
-*/
-}
+-(void)doData:(NSTimer *)timer{}
 
 -(void)sendData
 {
@@ -309,26 +298,21 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     [moc setPersistentStoreCoordinator:[[self managedObjectContext] persistentStoreCoordinator]];
     NSManagedObjectModel *mom = [[moc persistentStoreCoordinator] managedObjectModel];
     NSFetchRequest *fetchRequest = [ mom fetchRequestTemplateForName:@"GetAllNotUploaded"];
+    NSFetchRequest *deleteRequest = [mom fetchRequestTemplateForName:@"GetAllUploaded"];
+    NSLog(@"%@",deleteRequest);
+    //TODO: fix delete old uploads
+    
     NSError *error = nil;
     NSManagedObject *ob;
     NSArray *fobjects = [moc executeFetchRequest:fetchRequest error:&error];
-
-    
     for ( ob in fobjects) 
     {
-       
-            Location *dLocation = (Location *) ob;
-            if([self pushObject:dLocation]){
-                              [dLocation setUploaded:[NSNumber numberWithInt:1]];
-                              NSLog(@"Uploaded %@",[NSString stringWithFormat:@"%@", dLocation.Latitude]);
-            }
-            
-        
-        
-    }
-    if (![moc save:&error]) {
-    }else{
-        NSLog(@"Saved");
+        Location *dLocation = (Location *) ob;
+        if([self pushObject:dLocation])
+        {
+            [dLocation setUploaded:[NSNumber numberWithInt:1]];
+            // Location * xLoc = 
+        }
     }
 }
 

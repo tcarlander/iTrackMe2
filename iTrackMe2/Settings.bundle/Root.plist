@@ -6,15 +6,9 @@
 	<array>
 		<dict>
 			<key>Type</key>
-			<string>PSSliderSpecifier</string>
-			<key>Key</key>
-			<string>uploadTimerMinutes</string>
-			<key>DefaultValue</key>
-			<integer>0</integer>
-			<key>MinimumValue</key>
-			<integer>0</integer>
-			<key>MaximumValue</key>
-			<integer>0</integer>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Server Settings</string>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -41,6 +35,12 @@
 			<string>PSTextFieldSpecifier</string>
 			<key>AutocapitalizationType</key>
 			<string>None</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Update Distance (m)</string>
 		</dict>
 		<dict>
 			<key>Type</key>

@@ -23,6 +23,7 @@
     IBOutlet UILabel *locationLabelTime;
     IBOutlet UIButton *statusLabel;
     MKMapView *TheMap;
+    __unsafe_unretained IBOutlet UILabel *precisionLable;
 }
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
