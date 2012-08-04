@@ -268,15 +268,15 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     CLLocation *location = locationController.locationManager.location;
     Location *dLocation = (Location *)[NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:[self managedObjectContext]];
     CLLocationCoordinate2D coordinate = [location coordinate];
-    [dLocation setLatitude:[NSNumber numberWithDouble:coordinate.latitude]];
-    [dLocation setLongitude:[NSNumber numberWithDouble:coordinate.longitude]];
+    [dLocation setLatitude:@(coordinate.latitude)];
+    [dLocation setLongitude:@(coordinate.longitude)];
     [dLocation setDateOccured:[NSDate date]];
-    [dLocation setAltitude:[NSNumber numberWithDouble:location.altitude]];
-    [dLocation setAngle:[NSNumber numberWithDouble:location.course]];
+    [dLocation setAltitude:@(location.altitude)];
+    [dLocation setAngle:@(location.course)];
     [dLocation setComment:@""];
     [dLocation setIconID:@"1"];
-    [dLocation setSpeed:[NSNumber numberWithDouble:location.speed]];
-    [dLocation setUploaded:[NSNumber numberWithInt:0]];
+    [dLocation setSpeed:@(location.speed)];
+    [dLocation setUploaded:@0];
     
     NSError *error = nil;
     if (![[self managedObjectContext] save:&error]) {
@@ -310,7 +310,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         Location *dLocation = (Location *) ob;
         if([self pushObject:dLocation])
         {
-            [dLocation setUploaded:[NSNumber numberWithInt:1]];
+            [dLocation setUploaded:@1];
             // Location * xLoc = 
         }
     }
