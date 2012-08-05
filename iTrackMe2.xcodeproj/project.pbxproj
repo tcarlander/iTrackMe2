@@ -18,6 +18,14 @@
 		2818193313FB9C70007F4D44 /* MainViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2818193113FB9C70007F4D44 /* MainViewController_iPhone.xib */; };
 		2818193613FB9C70007F4D44 /* MainViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2818193413FB9C70007F4D44 /* MainViewController_iPad.xib */; };
 		2818194313FB9CDE007F4D44 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2818194213FB9CDE007F4D44 /* CoreLocation.framework */; };
+		282BFF3D15CE89210086AF62 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 282BFF3515CE89210086AF62 /* Icon-72.png */; };
+		282BFF3E15CE89210086AF62 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 282BFF3615CE89210086AF62 /* Icon-72@2x.png */; };
+		282BFF3F15CE89210086AF62 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 282BFF3715CE89210086AF62 /* Icon-Small-50.png */; };
+		282BFF4015CE89210086AF62 /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 282BFF3815CE89210086AF62 /* Icon-Small-50@2x.png */; };
+		282BFF4115CE89210086AF62 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 282BFF3915CE89210086AF62 /* Icon-Small.png */; };
+		282BFF4215CE89210086AF62 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 282BFF3A15CE89210086AF62 /* Icon-Small@2x.png */; };
+		282BFF4315CE89210086AF62 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 282BFF3B15CE89210086AF62 /* Icon.png */; };
+		282BFF4415CE89210086AF62 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 282BFF3C15CE89210086AF62 /* Icon@2x.png */; };
 		28395E9E13FCF88300F04B7B /* MyCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28395E9D13FCF88300F04B7B /* MyCLController.m */; };
 		28395EA013FD108600F04B7B /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 28395E9F13FD108600F04B7B /* Location.gpx */; };
 		2861CA3114038DB200BF38FF /* Icons.m in Sources */ = {isa = PBXBuildFile; fileRef = 2861CA3014038DB200BF38FF /* Icons.m */; };
@@ -27,12 +35,6 @@
 		2886605914011C9300B6EA0A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2886605814011C9300B6EA0A /* Settings.bundle */; };
 		28AB9D04146BF2940040AF31 /* 360.png in Resources */ = {isa = PBXBuildFile; fileRef = 28AB9D02146BF2940040AF31 /* 360.png */; };
 		28AB9D05146BF2940040AF31 /* Zero.png in Resources */ = {isa = PBXBuildFile; fileRef = 28AB9D03146BF2940040AF31 /* Zero.png */; };
-		28B543F9142A06F100318A72 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B543F8142A06F100318A72 /* Icon.png */; };
-		28B543FC142A06F900318A72 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B543FB142A06F900318A72 /* Icon@2x.png */; };
-		28B543FE142A071400318A72 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B543FD142A071400318A72 /* Icon-72.png */; };
-		28B7DF251430A68C004FAD97 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B7DF1F1430A68C004FAD97 /* Icon-Small-50.png */; };
-		28B7DF261430A68C004FAD97 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B7DF201430A68C004FAD97 /* Icon-Small.png */; };
-		28B7DF271430A68C004FAD97 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B7DF211430A68C004FAD97 /* Icon-Small@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,14 @@
 		2818193513FB9C70007F4D44 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainViewController_iPad.xib; sourceTree = "<group>"; };
 		2818194213FB9CDE007F4D44 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2818194813FBC156007F4D44 /* fells_loop.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = fells_loop.gpx; path = ../fells_loop.gpx; sourceTree = "<group>"; };
+		282BFF3515CE89210086AF62 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		282BFF3615CE89210086AF62 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "images/Icon-72@2x.png"; sourceTree = "<group>"; };
+		282BFF3715CE89210086AF62 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		282BFF3815CE89210086AF62 /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50@2x.png"; sourceTree = "<group>"; };
+		282BFF3915CE89210086AF62 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		282BFF3A15CE89210086AF62 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		282BFF3B15CE89210086AF62 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		282BFF3C15CE89210086AF62 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		28395E9C13FCF88300F04B7B /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCLController.h; sourceTree = "<group>"; };
 		28395E9D13FCF88300F04B7B /* MyCLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCLController.m; sourceTree = "<group>"; };
 		28395E9F13FD108600F04B7B /* Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Location.gpx; path = ../Location.gpx; sourceTree = "<group>"; };
@@ -69,12 +79,6 @@
 		28B543F8142A06F100318A72 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
 		28B543FB142A06F900318A72 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		28B543FD142A071400318A72 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
-		28B7DF1E1430A68C004FAD97 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
-		28B7DF1F1430A68C004FAD97 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
-		28B7DF201430A68C004FAD97 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
-		28B7DF211430A68C004FAD97 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
-		28B7DF221430A68C004FAD97 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		28B7DF231430A68C004FAD97 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		28DF3A1014027B0900503662 /* iTrackMe 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iTrackMe 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +154,7 @@
 		2818191D13FB9C70007F4D44 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				282BFF3615CE89210086AF62 /* Icon-72@2x.png */,
 				28B543FD142A071400318A72 /* Icon-72.png */,
 				28AB9D02146BF2940040AF31 /* 360.png */,
 				28AB9D03146BF2940040AF31 /* Zero.png */,
@@ -169,12 +174,13 @@
 		28B7DF1D1430A68C004FAD97 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				28B7DF1E1430A68C004FAD97 /* Icon-72.png */,
-				28B7DF1F1430A68C004FAD97 /* Icon-Small-50.png */,
-				28B7DF201430A68C004FAD97 /* Icon-Small.png */,
-				28B7DF211430A68C004FAD97 /* Icon-Small@2x.png */,
-				28B7DF221430A68C004FAD97 /* Icon.png */,
-				28B7DF231430A68C004FAD97 /* Icon@2x.png */,
+				282BFF3515CE89210086AF62 /* Icon-72.png */,
+				282BFF3715CE89210086AF62 /* Icon-Small-50.png */,
+				282BFF3815CE89210086AF62 /* Icon-Small-50@2x.png */,
+				282BFF3915CE89210086AF62 /* Icon-Small.png */,
+				282BFF3A15CE89210086AF62 /* Icon-Small@2x.png */,
+				282BFF3B15CE89210086AF62 /* Icon.png */,
+				282BFF3C15CE89210086AF62 /* Icon@2x.png */,
 			);
 			name = images;
 			path = iTrackMe2/images;
@@ -206,7 +212,7 @@
 		2818190913FB9C70007F4D44 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = 2818190C13FB9C70007F4D44 /* Build configuration list for PBXProject "iTrackMe2" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -235,14 +241,16 @@
 				2818193613FB9C70007F4D44 /* MainViewController_iPad.xib in Resources */,
 				28395EA013FD108600F04B7B /* Location.gpx in Resources */,
 				2886605914011C9300B6EA0A /* Settings.bundle in Resources */,
-				28B543F9142A06F100318A72 /* Icon.png in Resources */,
-				28B543FC142A06F900318A72 /* Icon@2x.png in Resources */,
-				28B543FE142A071400318A72 /* Icon-72.png in Resources */,
-				28B7DF251430A68C004FAD97 /* Icon-Small-50.png in Resources */,
-				28B7DF261430A68C004FAD97 /* Icon-Small.png in Resources */,
-				28B7DF271430A68C004FAD97 /* Icon-Small@2x.png in Resources */,
 				28AB9D04146BF2940040AF31 /* 360.png in Resources */,
 				28AB9D05146BF2940040AF31 /* Zero.png in Resources */,
+				282BFF3D15CE89210086AF62 /* Icon-72.png in Resources */,
+				282BFF3E15CE89210086AF62 /* Icon-72@2x.png in Resources */,
+				282BFF3F15CE89210086AF62 /* Icon-Small-50.png in Resources */,
+				282BFF4015CE89210086AF62 /* Icon-Small-50@2x.png in Resources */,
+				282BFF4115CE89210086AF62 /* Icon-Small.png in Resources */,
+				282BFF4215CE89210086AF62 /* Icon-Small@2x.png in Resources */,
+				282BFF4315CE89210086AF62 /* Icon.png in Resources */,
+				282BFF4415CE89210086AF62 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +332,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTrackMe2/iTrackMe2-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "iTrackMe2/iTrackMe2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -389,6 +398,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTrackMe2/iTrackMe2-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "iTrackMe2/iTrackMe2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -405,6 +415,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTrackMe2/iTrackMe2-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "iTrackMe2/iTrackMe2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";

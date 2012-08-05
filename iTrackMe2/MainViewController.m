@@ -185,7 +185,7 @@
 -(BOOL)pushImageToServer:(UIImage *)imageToPost
 {
     // Send the dragon to the server....
-//image data now contains image
+    //image data now contains image
     // create request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];                                    
     [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
@@ -237,7 +237,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     UIImage * myImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     if (myImage) {
         saved = [self pushImageToServer:myImage];
-         NSLog(@"Popped %@", saved);
+         NSLog(@"Popped %c", saved);
     }else{
         NSLog(@"Popped %@", myImage);
     }
@@ -330,9 +330,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     NSString * longitude = [NSString stringWithFormat:@"%@", location.Longitude];
     NSString * altitude = [NSString stringWithFormat:@"%@", location.Altitude];
     NSString * angle = [NSString stringWithFormat:@"%@", location.Angle];
-    NSString * datedone = [dateFormatter stringFromDate:location.DateOccured];   
-    
-    NSString * fullUrl = [NSString stringWithFormat:@"%@requests.php?a=upload&u=%@&p=wfpdubai&lat=%@&long=%@&do=%@&tn=%@&alt=%@&ang=&sp=&db=8"
+    NSString * datedone = [dateFormatter stringFromDate:location.DateOccured];
+    NSString * fullUrl = [NSString stringWithFormat:@"%@requests.php?a=upload&u=%@&p=wfpdubai&lat=%@&long=%@&do=%@&tn=%@&alt=%@&ang=%@&sp=&db=8"
                           ,baseURL,userName,latitde,longitude,datedone,userName,altitude,angle];
     fullUrl = [fullUrl stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
     NSLog(@"%@",fullUrl);
@@ -355,40 +354,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 
 - (IBAction)takePhoto:(id)sender {
-  //  [self doData];
-    
+  //  [self doData];    
 }
 
 - (IBAction)tagLocation:(id)sender {
+    
+    
 }
-
-/*
-- (BOOL) connectedToNetwork
-{
-    // Create zero addy
-    struct sockaddr_in zeroAddress;
-    bzero(&zeroAddress, sizeof(zeroAddress));
-    zeroAddress.sin_len = sizeof(zeroAddress);
-    zeroAddress.sin_family = AF_INET;
-    
-    // Recover reachability flags
-    SCNetworkReachabilityRef defaultRouteReachability = SCNetworkReachabilityCreateWithAddress(NULL, (struct sockaddr *)&zeroAddress);
-    SCNetworkReachabilityFlags flags;
-    
-    BOOL didRetrieveFlags = SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags);
-    CFRelease(defaultRouteReachability);
-    
-    if (!didRetrieveFlags)
-    {
-        printf("Error. Could not recover network reachability flags\n");
-        return 0;
-    }
-    
-    BOOL isReachable = flags & kSCNetworkFlagsReachable;
-    BOOL needsConnection = flags & kSCNetworkFlagsConnectionRequired;
-    return (isReachable && !needsConnection) ? YES : NO;
-}
-*/
 
 
 
