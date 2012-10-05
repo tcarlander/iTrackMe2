@@ -23,7 +23,7 @@
 - (id)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];
-    if (self) 
+    if (self)
     {
         id delegate = [[UIApplication sharedApplication] delegate];
         self.managedObjectContext = [delegate managedObjectContext];
@@ -47,13 +47,13 @@
     locationController = [[MyCLController alloc] init];
     locationController.delegate = self;
     [locationController locationManagerStart];
-    if (__managedObjectContext == nil) 
-    { 
-        __managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext] ; 
-    }
-    if (__managedObjectModel==nil) 
+    if (__managedObjectContext == nil)
     {
-        __managedObjectModel = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectModel] ; 
+        __managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext] ;
+    }
+    if (__managedObjectModel==nil)
+    {
+        __managedObjectModel = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectModel] ;
     }
     [NSTimer scheduledTimerWithTimeInterval:4
                                      target:self
@@ -98,7 +98,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) 
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
     {
         return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
     } else {
@@ -106,7 +106,7 @@
     }
 }
 
-- (void)locationUpdate:(CLLocation *)location 
+- (void)locationUpdate:(CLLocation *)location
 {
     CLLocationAccuracy accuracy = location.horizontalAccuracy;
     CLLocationDegrees latitude = location.coordinate.latitude;
@@ -117,7 +117,7 @@
     locationLabelLong.text = [NSString stringWithFormat:@"Long: %g",longitude] ;
     locationLabelTime.text = [NSString stringWithFormat:@"Last Update: %@",timeStamp] ;
     precisionLable.text =    [NSString stringWithFormat:@"±%.0fm",accuracy];
-
+    
     MKCoordinateRegion region;
 	region.center=location.coordinate;
     MKCoordinateSpan span;
@@ -129,7 +129,7 @@
     
 }
 
-- (void)locationError:(NSError *)error 
+- (void)locationError:(NSError *)error
 {
     locationLabelLat.text = [error description];
 }
@@ -139,10 +139,10 @@
     
     if (!locationController.running)
     {
-        startStopButton.title=@"Stop"; 
+        startStopButton.title=@"Stop";
         [TheMap setShowsUserLocation:YES];
     }else{
-        startStopButton.title=@"Start"; 
+        startStopButton.title=@"Start";
         [TheMap setShowsUserLocation:NO];
     }
     [locationController locationToggler];
@@ -157,10 +157,10 @@
         [locationController locationToggler];
         ran = YES;
     }
-
-    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) 
+    
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
     {
-        return; 
+        return;
     }
     UIImagePickerController* picker = [[UIImagePickerController alloc] init];
     picker.mediaTypes =[UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
@@ -187,7 +187,7 @@
     // Send the dragon to the server....
     //image data now contains image
     // create request
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];                                    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
     [request setHTTPShouldHandleCookies:NO];
     [request setTimeoutInterval:30];
@@ -199,50 +199,54 @@
     [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
     
     // post body
-   // NSMutableData *body = [NSMutableData data];
- /*   
-    // add params (all params are strings)
-    for (NSString *param in _params) {
-        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BoundaryConstant] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", param] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"%@\r\n", [_params objectForKey:param]] dataUsingEncoding:NSUTF8StringEncoding]];
-    }
-    
-    // add image data
-    NSData *imageData = UIImageJPEGRepresentation(imageToPost, 1.0);
-    if (imageData) {
-        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"image.jpg\"\r\n", FileParamConstant] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithString:@"Content-Type: image/jpeg\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:imageData];
-        [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-    }
-    
-    [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    // setting the body of the post to the reqeust
-    [request setHTTPBody:body];
-    
-    // set URL
-    [request setURL:requestURL];*/
+    // NSMutableData *body = [NSMutableData data];
+    /*
+     // add params (all params are strings)
+     for (NSString *param in _params) {
+     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BoundaryConstant] dataUsingEncoding:NSUTF8StringEncoding]];
+     [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", param] dataUsingEncoding:NSUTF8StringEncoding]];
+     [body appendData:[[NSString stringWithFormat:@"%@\r\n", [_params objectForKey:param]] dataUsingEncoding:NSUTF8StringEncoding]];
+     }
+     
+     // add image data
+     NSData *imageData = UIImageJPEGRepresentation(imageToPost, 1.0);
+     if (imageData) {
+     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+     [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"image.jpg\"\r\n", FileParamConstant] dataUsingEncoding:NSUTF8StringEncoding]];
+     [body appendData:[[NSString stringWithString:@"Content-Type: image/jpeg\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+     [body appendData:imageData];
+     [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+     }
+     
+     [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+     
+     // setting the body of the post to the reqeust
+     [request setHTTPBody:body];
+     
+     // set URL
+     [request setURL:requestURL];*/
     return NO;
 }
 
 
-- (void)imagePickerController:(UIImagePickerController *)picker 
-didFinishPickingMediaWithInfo:(NSDictionary *)info 
+- (void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     BOOL saved = NO;
     [picker dismissModalViewControllerAnimated:YES];
     UIImage * myImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     if (myImage) {
         saved = [self pushImageToServer:myImage];
+<<<<<<< HEAD
          NSLog(@"Popped %c", saved);
+=======
+        NSLog(@"Popped %d", saved);
+>>>>>>> Add Distance
     }else{
         NSLog(@"Popped %@", myImage);
     }
     //Do Image save
-
+    
     
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -251,12 +255,12 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     // Dismiss the image selection and close the program
     
     [picker dismissModalViewControllerAnimated:YES];
-    NSLog(@"Dissmissed picker");    
+    NSLog(@"Dissmissed picker");
     
 }
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)Controller{
     
-    NSLog(@"Dissmissed picker"); 
+    NSLog(@"Dissmissed picker");
     popoverController=nil;
     
 }
@@ -284,7 +288,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     }else{
         NSLog(@"Added");
     }
-    dispatch_async([self myQueue], ^{   
+    dispatch_async([self myQueue], ^{
         [self sendData];
     });
     
@@ -305,13 +309,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     NSError *error = nil;
     NSManagedObject *ob;
     NSArray *fobjects = [moc executeFetchRequest:fetchRequest error:&error];
-    for ( ob in fobjects) 
+    for ( ob in fobjects)
     {
         Location *dLocation = (Location *) ob;
         if([self pushObject:dLocation])
         {
             [dLocation setUploaded:@1];
-            // Location * xLoc = 
+            // Location * xLoc =
         }
     }
 }
@@ -331,6 +335,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     NSString * altitude = [NSString stringWithFormat:@"%@", location.Altitude];
     NSString * angle = [NSString stringWithFormat:@"%@", location.Angle];
     NSString * datedone = [dateFormatter stringFromDate:location.DateOccured];
+<<<<<<< HEAD
+=======
+    
+>>>>>>> Add Distance
     NSString * fullUrl = [NSString stringWithFormat:@"%@requests.php?a=upload&u=%@&p=wfpdubai&lat=%@&long=%@&do=%@&tn=%@&alt=%@&ang=%@&sp=&db=8"
                           ,baseURL,userName,latitde,longitude,datedone,userName,altitude,angle];
     fullUrl = [fullUrl stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
@@ -338,15 +346,15 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     NSURL * serverUrl =  [NSURL URLWithString:fullUrl];
     NSURLRequest *theRequest=[
                               NSURLRequest requestWithURL:serverUrl
-                                              cachePolicy:NSURLCacheStorageNotAllowed
-                                          timeoutInterval:5
+                              cachePolicy:NSURLCacheStorageNotAllowed
+                              timeoutInterval:5
                               ];
     NSError *error = nil;
     NSURLResponse  *response = nil;
     NSData *dataReply = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:&response error:&error];
-    NSString * stringReply = (NSString *)[[NSString alloc] initWithData:dataReply encoding:NSUTF8StringEncoding];    
+    NSString * stringReply = (NSString *)[[NSString alloc] initWithData:dataReply encoding:NSUTF8StringEncoding];
     if ([stringReply isEqualToString:@"Result:0"]) {
-        return TRUE;        
+        return TRUE;
     } else {
         return FALSE;
     }
@@ -354,6 +362,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 }
 
 - (IBAction)takePhoto:(id)sender {
+<<<<<<< HEAD
   //  [self doData];    
 }
 
@@ -361,6 +370,42 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     
     
 }
+=======
+    //  [self doData];
+    
+}
+
+- (IBAction)tagLocation:(id)sender {
+}
+
+/*
+ - (BOOL) connectedToNetwork
+ {
+ // Create zero addy
+ struct sockaddr_in zeroAddress;
+ bzero(&zeroAddress, sizeof(zeroAddress));
+ zeroAddress.sin_len = sizeof(zeroAddress);
+ zeroAddress.sin_family = AF_INET;
+ 
+ // Recover reachability flags
+ SCNetworkReachabilityRef defaultRouteReachability = SCNetworkReachabilityCreateWithAddress(NULL, (struct sockaddr *)&zeroAddress);
+ SCNetworkReachabilityFlags flags;
+ 
+ BOOL didRetrieveFlags = SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags);
+ CFRelease(defaultRouteReachability);
+ 
+ if (!didRetrieveFlags)
+ {
+ printf("Error. Could not recover network reachability flags\n");
+ return 0;
+ }
+ 
+ BOOL isReachable = flags & kSCNetworkFlagsReachable;
+ BOOL needsConnection = flags & kSCNetworkFlagsConnectionRequired;
+ return (isReachable && !needsConnection) ? YES : NO;
+ }
+ */
+>>>>>>> Add Distance
 
 
 

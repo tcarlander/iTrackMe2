@@ -35,6 +35,16 @@
 		2886605914011C9300B6EA0A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2886605814011C9300B6EA0A /* Settings.bundle */; };
 		28AB9D04146BF2940040AF31 /* 360.png in Resources */ = {isa = PBXBuildFile; fileRef = 28AB9D02146BF2940040AF31 /* 360.png */; };
 		28AB9D05146BF2940040AF31 /* Zero.png in Resources */ = {isa = PBXBuildFile; fileRef = 28AB9D03146BF2940040AF31 /* Zero.png */; };
+<<<<<<< HEAD
+=======
+		28B543F9142A06F100318A72 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B543F8142A06F100318A72 /* Icon.png */; };
+		28B543FC142A06F900318A72 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B543FB142A06F900318A72 /* Icon@2x.png */; };
+		28B543FE142A071400318A72 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B543FD142A071400318A72 /* Icon-72.png */; };
+		28B7DF251430A68C004FAD97 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B7DF1F1430A68C004FAD97 /* Icon-Small-50.png */; };
+		28B7DF261430A68C004FAD97 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B7DF201430A68C004FAD97 /* Icon-Small.png */; };
+		28B7DF271430A68C004FAD97 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B7DF211430A68C004FAD97 /* Icon-Small@2x.png */; };
+		F6F6FFB9161EE90200A35B70 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F6FFB8161EE90200A35B70 /* Default-568h@2x.png */; };
+>>>>>>> Add Distance
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +90,7 @@
 		28B543FB142A06F900318A72 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		28B543FD142A071400318A72 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
 		28DF3A1014027B0900503662 /* iTrackMe 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iTrackMe 2.xcdatamodel"; sourceTree = "<group>"; };
+		F6F6FFB8161EE90200A35B70 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +113,7 @@
 		2818190713FB9C70007F4D44 = {
 			isa = PBXGroup;
 			children = (
+				F6F6FFB8161EE90200A35B70 /* Default-568h@2x.png */,
 				28B7DF1D1430A68C004FAD97 /* images */,
 				2818191C13FB9C70007F4D44 /* iTrackMe2 */,
 				2818191513FB9C70007F4D44 /* Frameworks */,
@@ -212,7 +224,11 @@
 		2818190913FB9C70007F4D44 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+<<<<<<< HEAD
 				LastUpgradeCheck = 0440;
+=======
+				LastUpgradeCheck = 0450;
+>>>>>>> Add Distance
 			};
 			buildConfigurationList = 2818190C13FB9C70007F4D44 /* Build configuration list for PBXProject "iTrackMe2" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -243,6 +259,7 @@
 				2886605914011C9300B6EA0A /* Settings.bundle in Resources */,
 				28AB9D04146BF2940040AF31 /* 360.png in Resources */,
 				28AB9D05146BF2940040AF31 /* Zero.png in Resources */,
+<<<<<<< HEAD
 				282BFF3D15CE89210086AF62 /* Icon-72.png in Resources */,
 				282BFF3E15CE89210086AF62 /* Icon-72@2x.png in Resources */,
 				282BFF3F15CE89210086AF62 /* Icon-Small-50.png in Resources */,
@@ -251,6 +268,9 @@
 				282BFF4215CE89210086AF62 /* Icon-Small@2x.png in Resources */,
 				282BFF4315CE89210086AF62 /* Icon.png in Resources */,
 				282BFF4415CE89210086AF62 /* Icon@2x.png in Resources */,
+=======
+				F6F6FFB9161EE90200A35B70 /* Default-568h@2x.png in Resources */,
+>>>>>>> Add Distance
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,7 +327,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Tobias Carlander";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -316,7 +336,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "032B104C-EFDE-4CDE-B634-E04C1CACCE25";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -346,7 +366,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Tobias Carlander (N88F3TYFRG)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -361,7 +381,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				PROVISIONING_PROFILE = "E69B91D2-2D5A-47C6-8A45-F9E8B20775B9";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -373,7 +393,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Tobias Carlander";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -382,7 +402,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "032B104C-EFDE-4CDE-B634-E04C1CACCE25";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
