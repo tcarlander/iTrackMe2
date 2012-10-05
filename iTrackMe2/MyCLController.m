@@ -51,7 +51,7 @@
 
 {
     [self.locationManager startUpdatingLocation];
-    [self.locationManager startUpdatingHeading];
+    [self.locationManager startUpdatingHeading];    
     running = TRUE;
 }
 
