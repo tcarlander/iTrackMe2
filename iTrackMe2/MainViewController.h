@@ -16,7 +16,7 @@
 
 @interface MainViewController : UIViewController < MyCLControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIPopoverControllerDelegate>{
     AppDelegate *appDelegate;
-
+    
     MyCLController *locationController;
     IBOutlet UILabel *locationLabelLat;
     IBOutlet UILabel *locationLabelLong;
