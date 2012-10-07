@@ -32,6 +32,7 @@
 		2861CA3414038DE100BF38FF /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 2861CA3314038DE100BF38FF /* Location.m */; };
 		2879019A140BAAF2000872FF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28790199140BAAF2000872FF /* SystemConfiguration.framework */; };
 		287A54EC13FBE3ED001CFEEC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287A54EB13FBE3ED001CFEEC /* MapKit.framework */; };
+		28835A421621553A0089265E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28835A411621553A0089265E /* Default-568h@2x.png */; };
 		2886605914011C9300B6EA0A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2886605814011C9300B6EA0A /* Settings.bundle */; };
 		28AB9D04146BF2940040AF31 /* 360.png in Resources */ = {isa = PBXBuildFile; fileRef = 28AB9D02146BF2940040AF31 /* 360.png */; };
 		28AB9D05146BF2940040AF31 /* Zero.png in Resources */ = {isa = PBXBuildFile; fileRef = 28AB9D03146BF2940040AF31 /* Zero.png */; };
@@ -73,6 +74,7 @@
 		28790199140BAAF2000872FF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		287A54EB13FBE3ED001CFEEC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2880B0311403805B0081B94D /* iTrackMe 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iTrackMe 2.xcdatamodel"; sourceTree = "<group>"; };
+		28835A411621553A0089265E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../Default-568h@2x.png"; sourceTree = "<group>"; };
 		2886605814011C9300B6EA0A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		28AB9D02146BF2940040AF31 /* 360.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 360.png; path = images/360.png; sourceTree = "<group>"; };
 		28AB9D03146BF2940040AF31 /* Zero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Zero.png; path = images/Zero.png; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		28B7DF1D1430A68C004FAD97 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				28835A411621553A0089265E /* Default-568h@2x.png */,
 				282BFF3515CE89210086AF62 /* Icon-72.png */,
 				282BFF3715CE89210086AF62 /* Icon-Small-50.png */,
 				282BFF3815CE89210086AF62 /* Icon-Small-50@2x.png */,
@@ -251,6 +254,7 @@
 				282BFF4215CE89210086AF62 /* Icon-Small@2x.png in Resources */,
 				282BFF4315CE89210086AF62 /* Icon.png in Resources */,
 				282BFF4415CE89210086AF62 /* Icon@2x.png in Resources */,
+				28835A421621553A0089265E /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
