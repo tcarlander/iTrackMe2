@@ -49,5 +49,6 @@
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
 - (BOOL)pushObject:(Location *)location;
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
 
 @end

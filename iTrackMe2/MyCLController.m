@@ -20,7 +20,8 @@
     if (self != nil) {
         self.locationManager = [[CLLocationManager alloc] init] ;
         self.locationManager.delegate = self; // send loc updates to myself
-        self.locationManager.distanceFilter = 100;
+        self.locationManager.distanceFilter = 500;
+        self.locationManager.pausesLocationUpdatesAutomatically = NO;
     }
     return self;
 }

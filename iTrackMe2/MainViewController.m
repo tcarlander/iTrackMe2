@@ -181,50 +181,50 @@
         [locationController locationToggler];
     }
 }
-
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    //UIGraphicsBeginImageContext(newSize);
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 1.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
 -(BOOL)pushImageToServer:(UIImage *)imageToPost
 {
+    NSString * userName = appDelegate.userName;
+    NSString * baseURL = appDelegate.serverURL;
     // Send the dragon to the server....
     //image data now contains image
     // create request
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];                                    
-    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-    [request setHTTPShouldHandleCookies:NO];
-    [request setTimeoutInterval:30];
+    //TODO:: Make smaller image
+    UIImage *smallImage = [self imageWithImage:imageToPost scaledToSize:CGSizeMake(290, 390)];
+    
+    NSData *imageData = UIImagePNGRepresentation(smallImage);
+    //NSData *imageData = UIImagePNGRepresentation(imageToPost);
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@upload.php?u=%@&p=wfpdubai&db=8&a=pic&newname=%@12345.jpg",baseURL,userName,userName];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:urlString]];
     [request setHTTPMethod:@"POST"];
-    NSString *boundary = @"12345";
     
-    // set Content-Type in HTTP header
-    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
-    [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
-    
-    // post body
-   // NSMutableData *body = [NSMutableData data];
- /*   
-    // add params (all params are strings)
-    for (NSString *param in _params) {
-        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BoundaryConstant] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", param] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"%@\r\n", [_params objectForKey:param]] dataUsingEncoding:NSUTF8StringEncoding]];
-    }
-    
-    // add image data
-    NSData *imageData = UIImageJPEGRepresentation(imageToPost, 1.0);
-    if (imageData) {
-        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"image.jpg\"\r\n", FileParamConstant] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithString:@"Content-Type: image/jpeg\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:imageData];
-        [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-    }
-    
-    [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    // setting the body of the post to the reqeust
+    NSString *boundary = @"---------------------------14737809831466499882746641449";
+    //NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@\r\n",boundary];
+   // [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary] forHTTPHeaderField:@"Content-Type"];//
+    NSMutableData *body = [NSMutableData data];
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: attachment; name=\"uploadfile\"; filename=\"test.png\"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[NSData dataWithData:imageData]];
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [request setHTTPBody:body];
     
-    // set URL
-    [request setURL:requestURL];*/
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"Image Return String: %@", returnString);
+    
     return NO;
 }
 
@@ -303,17 +303,32 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     //TODO: fix delete old uploads
     
     NSError *error = nil;
-    NSManagedObject *ob;
+    //NSManagedObject *ob;
     NSArray *fobjects = [moc executeFetchRequest:fetchRequest error:&error];
-    for ( ob in fobjects) 
+    for ( Location *dLocation in fobjects) 
     {
-        Location *dLocation = (Location *) ob;
+        //Location *dLocation = (Location *) ob;
+
         if([self pushObject:dLocation])
         {
             [dLocation setUploaded:[NSNumber numberWithInt:1]];
-            // Location * xLoc = 
+            
+           
+            NSLog(@"%@",dLocation.uploaded);
+            // Location * xLoc =
         }
     }
+    [moc  save:&error];
+    fobjects = [moc executeFetchRequest:deleteRequest error:&error];
+    for ( Location *dLocation in fobjects)
+    {
+        //Location *dLocation = (Location *) ob;
+        NSManagedObject *eventToDelete = [moc objectWithID:dLocation.objectID];
+        [eventToDelete.managedObjectContext deleteObject:eventToDelete];
+        
+
+    }
+    [moc  save:&error];
 }
 
 -(BOOL)pushObject:(Location *)location
@@ -345,8 +360,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     NSURLResponse  *response = nil;
     NSData *dataReply = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:&response error:&error];
     NSString * stringReply = (NSString *)[[NSString alloc] initWithData:dataReply encoding:NSUTF8StringEncoding];    
-    if ([stringReply isEqualToString:@"Result:0"]) {
-        return TRUE;        
+    if ([stringReply isEqualToString:@"Result:0"] || [stringReply isEqualToString:@"Result:2"] ) {
+        return TRUE;
     } else {
         return FALSE;
     }
