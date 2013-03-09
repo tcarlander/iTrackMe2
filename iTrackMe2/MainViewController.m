@@ -197,12 +197,19 @@
     //image data now contains image
     // create request
     //TODO:: Make smaller image
+    
     UIImage *smallImage = [self imageWithImage:imageToPost scaledToSize:CGSizeMake(290, 390)];
     
+    NSString * description = @"Sim Description";
+    CLLocation *location = locationController.locationManager.location;
+    CLLocationCoordinate2D coordinate = [location coordinate];
+
+    NSString * latitude = [NSString stringWithFormat:@"%f",coordinate.latitude];
+    NSString * longitude = [NSString stringWithFormat:@"%f",coordinate.longitude];
+
     NSData *imageData = UIImagePNGRepresentation(smallImage);
-    //NSData *imageData = UIImagePNGRepresentation(imageToPost);
     
-    NSString *urlString = [NSString stringWithFormat:@"%@upload.php?u=%@&p=wfpdubai&db=8&a=pic&newname=%@12345.jpg",baseURL,userName,userName];
+    NSString *urlString = [NSString stringWithFormat:@"%@incident/",baseURL];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString:urlString]];
@@ -213,11 +220,31 @@
    // [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
     [request setValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary] forHTTPHeaderField:@"Content-Type"];//
     NSMutableData *body = [NSMutableData data];
-    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: attachment; name=\"uploadfile\"; filename=\"test.png\"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    // file
+    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: attachment; name=\"image\"; filename=\"%@.png\"\r\n", userName] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[NSData dataWithData:imageData]];
-    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    // text parameter
+    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"user\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"%@",userName] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"description\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"%@",description] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"location\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"POINT(%@ %@)", longitude, latitude] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    // close form
+    [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+
     [request setHTTPBody:body];
     
     NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
@@ -266,8 +293,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     
     CLLocation *location = locationController.locationManager.location;
-    Location *dLocation = (Location *)[NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:[self managedObjectContext]];
     CLLocationCoordinate2D coordinate = [location coordinate];
+    
+    Location *dLocation = (Location *)[NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:[self managedObjectContext]];
     [dLocation setLatitude:[NSNumber numberWithDouble:coordinate.latitude]];
     [dLocation setLongitude:[NSNumber numberWithDouble:coordinate.longitude]];
     [dLocation setDateOccured:[NSDate date]];
@@ -300,7 +328,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     NSFetchRequest *fetchRequest = [ mom fetchRequestTemplateForName:@"GetAllNotUploaded"];
     NSFetchRequest *deleteRequest = [mom fetchRequestTemplateForName:@"GetAllUploaded"];
     NSLog(@"%@",deleteRequest);
-    //TODO: fix delete old uploads
     
     NSError *error = nil;
     //NSManagedObject *ob;
