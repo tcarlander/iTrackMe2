@@ -46,6 +46,7 @@
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     locationController = [[MyCLController alloc] init];
     locationController.delegate = self;
+    locationController.locationManager.distanceFilter = [appDelegate.distanceFilter doubleValue];
     [locationController locationManagerStart];
     if (__managedObjectContext == nil) 
     { 
@@ -111,22 +112,23 @@
     CLLocationAccuracy accuracy = location.horizontalAccuracy;
     CLLocationDegrees latitude = location.coordinate.latitude;
     CLLocationDegrees longitude = location.coordinate.longitude;
-    NSDate *timeStamp = location.timestamp;
-    
     locationLabelLat.text =  [NSString stringWithFormat:@"Lat:%g",latitude] ;
     locationLabelLong.text = [NSString stringWithFormat:@"Long: %g",longitude] ;
-    locationLabelTime.text = [NSString stringWithFormat:@"Last Update: %@",timeStamp] ;
-    precisionLable.text =    [NSString stringWithFormat:@"±%.0fm",accuracy];
 
+    precisionLable.text =    [NSString stringWithFormat:@"±%.0fm",accuracy];
+    
+    
     MKCoordinateRegion region;
 	region.center=location.coordinate;
     MKCoordinateSpan span;
-	span.latitudeDelta=.005;
-	span.longitudeDelta=.005;
+	span.latitudeDelta=.01;
+	span.longitudeDelta=.01;
 	region.span=span;
-    [self addEvent];
-	[TheMap setRegion:region animated:TRUE];
+    NSString *SpeedText = [NSString stringWithFormat:@"Speed: %f",location.speed ];
     
+    NSLog(@"%@",SpeedText);
+    [self addEvent];
+    [TheMap setRegion:region animated:TRUE];
 }
 
 - (void)locationError:(NSError *)error 
@@ -136,15 +138,20 @@
 
 - (IBAction)locationToggle:(id)sender
 {
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    double testValue = 1400.0;
     
     if (!locationController.running)
     {
-        startStopButton.title=@"Stop"; 
+        startStopButton.title=@"Stop";
         [TheMap setShowsUserLocation:YES];
+//        [defaults setFloat:testValue forKey:@"updateDistance"];
+//        [defaults synchronize];
     }else{
-        startStopButton.title=@"Start"; 
+        startStopButton.title=@"Start";
         [TheMap setShowsUserLocation:NO];
     }
+    [self sendData];
     [locationController locationToggler];
 }
 
@@ -193,10 +200,6 @@
 {
     NSString * userName = appDelegate.userName;
     NSString * baseURL = appDelegate.serverURL;
-    // Send the dragon to the server....
-    //image data now contains image
-    // create request
-    //TODO:: Make smaller image
     
     UIImage *smallImage = [self imageWithImage:imageToPost scaledToSize:CGSizeMake(290, 390)];
     
@@ -310,7 +313,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     if (![[self managedObjectContext] save:&error]) {
         // Handle the error.
     }else{
-        NSLog(@"Added");
+        
     }
     dispatch_async([self myQueue], ^{   
         [self sendData];
@@ -327,34 +330,29 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     NSManagedObjectModel *mom = [[moc persistentStoreCoordinator] managedObjectModel];
     NSFetchRequest *fetchRequest = [ mom fetchRequestTemplateForName:@"GetAllNotUploaded"];
     NSFetchRequest *deleteRequest = [mom fetchRequestTemplateForName:@"GetAllUploaded"];
-    NSLog(@"%@",deleteRequest);
-    
+    NSDate *timeStamp = [NSDate date];
     NSError *error = nil;
-    //NSManagedObject *ob;
     NSArray *fobjects = [moc executeFetchRequest:fetchRequest error:&error];
-    for ( Location *dLocation in fobjects) 
-    {
-        //Location *dLocation = (Location *) ob;
 
+    for ( Location *dLocation in fobjects)
+    {
         if([self pushObject:dLocation])
         {
             [dLocation setUploaded:[NSNumber numberWithInt:1]];
-            
-           
-            NSLog(@"%@",dLocation.uploaded);
-            // Location * xLoc =
         }
     }
+
     [moc  save:&error];
+    
     fobjects = [moc executeFetchRequest:deleteRequest error:&error];
     for ( Location *dLocation in fobjects)
     {
         //Location *dLocation = (Location *) ob;
         NSManagedObject *eventToDelete = [moc objectWithID:dLocation.objectID];
         [eventToDelete.managedObjectContext deleteObject:eventToDelete];
-        
-
     }
+    locationLabelTime.text = [NSString stringWithFormat:@"Last Update: %@",timeStamp];
+    NSLog(@"%@",locationLabelTime.text);
     [moc  save:&error];
 }
 
