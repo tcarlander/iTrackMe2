@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7C5E8593-705C-44AA-B7EB-9CE0A0879FB9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iTrackMe2</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4153E127-1DA5-45C3-9741-C06ABAC422D5</key>
+		<string>https://github.com/tcarlander/iTrackMe2.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iTrackMe2.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4153E127-1DA5-45C3-9741-C06ABAC422D5</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/tcarlander/iTrackMe2.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4153E127-1DA5-45C3-9741-C06ABAC422D5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4153E127-1DA5-45C3-9741-C06ABAC422D5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iTrackMe2</string>
+		</dict>
+	</array>
+</dict>
+</plist>

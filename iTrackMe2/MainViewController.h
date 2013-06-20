@@ -8,9 +8,10 @@
 
 #import "AppDelegate.h"
 #import "MyCLController.h"
-#import <CoreData/CoreData.h>
-#import <MapKit/MapKit.h>
-#import <UIKit/UIImagePickerController.h>
+
+@import CoreData;
+@import MapKit;
+@import UIKit.UIImagePickerController;
 
 
 

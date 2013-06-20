@@ -6,7 +6,8 @@
 //  Copyright (c) 2011 Tobias Carlander. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+
 
 @protocol MyCLControllerDelegate 
 @required

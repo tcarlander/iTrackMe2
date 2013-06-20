@@ -5,9 +5,12 @@
 //  Created by Tobias Carlander on 17/08/2011.
 //  Copyright (c) 2011 Tobias Carlander. All rights reserved.
 //
+@import UIKit;
 
-#import <UIKit/UIKit.h>
 #import "Location.h"
+
+
+
 
 @class MainViewController;
 
