@@ -18,6 +18,11 @@
 		2818193313FB9C70007F4D44 /* MainViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2818193113FB9C70007F4D44 /* MainViewController_iPhone.xib */; };
 		2818193613FB9C70007F4D44 /* MainViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2818193413FB9C70007F4D44 /* MainViewController_iPad.xib */; };
 		2818194313FB9CDE007F4D44 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2818194213FB9CDE007F4D44 /* CoreLocation.framework */; };
+		28241BFD1778321B00969ED2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28241BFC1778321B00969ED2 /* XCTest.framework */; };
+		28241BFE1778321B00969ED2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2818191813FB9C70007F4D44 /* Foundation.framework */; };
+		28241BFF1778321B00969ED2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2818191613FB9C70007F4D44 /* UIKit.framework */; };
+		28241C051778321B00969ED2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28241C031778321B00969ED2 /* InfoPlist.strings */; };
+		28241C071778321B00969ED2 /* EPIC_TrackMe_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28241C061778321B00969ED2 /* EPIC_TrackMe_Tests.m */; };
 		282BFF3D15CE89210086AF62 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 282BFF3515CE89210086AF62 /* Icon-72.png */; };
 		282BFF3E15CE89210086AF62 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 282BFF3615CE89210086AF62 /* Icon-72@2x.png */; };
 		282BFF3F15CE89210086AF62 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 282BFF3715CE89210086AF62 /* Icon-Small-50.png */; };
@@ -38,6 +43,16 @@
 		28AB9D05146BF2940040AF31 /* Zero.png in Resources */ = {isa = PBXBuildFile; fileRef = 28AB9D03146BF2940040AF31 /* Zero.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		28241C091778321B00969ED2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2818190913FB9C70007F4D44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2818191113FB9C70007F4D44;
+			remoteInfo = "EPIC TrackMe";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		2818191213FB9C70007F4D44 /* EPIC TrackMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EPIC TrackMe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2818191613FB9C70007F4D44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -56,6 +71,12 @@
 		2818193513FB9C70007F4D44 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainViewController_iPad.xib; sourceTree = "<group>"; };
 		2818194213FB9CDE007F4D44 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2818194813FBC156007F4D44 /* fells_loop.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = fells_loop.gpx; path = ../fells_loop.gpx; sourceTree = "<group>"; };
+		28241BFB1778321B00969ED2 /* EPIC TrackMe Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EPIC TrackMe Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28241BFC1778321B00969ED2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		28241C021778321B00969ED2 /* EPIC TrackMe Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EPIC TrackMe Tests-Info.plist"; sourceTree = "<group>"; };
+		28241C041778321B00969ED2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		28241C061778321B00969ED2 /* EPIC_TrackMe_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPIC_TrackMe_Tests.m; sourceTree = "<group>"; };
+		28241C081778321B00969ED2 /* EPIC TrackMe Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EPIC TrackMe Tests-Prefix.pch"; sourceTree = "<group>"; };
 		282BFF3515CE89210086AF62 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		282BFF3615CE89210086AF62 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "images/Icon-72@2x.png"; sourceTree = "<group>"; };
 		282BFF3715CE89210086AF62 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
@@ -98,6 +119,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		28241BF81778321B00969ED2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28241BFD1778321B00969ED2 /* XCTest.framework in Frameworks */,
+				28241BFF1778321B00969ED2 /* UIKit.framework in Frameworks */,
+				28241BFE1778321B00969ED2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -106,6 +137,7 @@
 			children = (
 				28B7DF1D1430A68C004FAD97 /* images */,
 				2818191C13FB9C70007F4D44 /* iTrackMe2 */,
+				28241C001778321B00969ED2 /* EPIC TrackMe Tests */,
 				2818191513FB9C70007F4D44 /* Frameworks */,
 				2818191313FB9C70007F4D44 /* Products */,
 			);
@@ -115,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				2818191213FB9C70007F4D44 /* EPIC TrackMe.app */,
+				28241BFB1778321B00969ED2 /* EPIC TrackMe Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,6 +161,7 @@
 				2818191613FB9C70007F4D44 /* UIKit.framework */,
 				2818191813FB9C70007F4D44 /* Foundation.framework */,
 				2818191A13FB9C70007F4D44 /* CoreData.framework */,
+				28241BFC1778321B00969ED2 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -173,6 +207,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		28241C001778321B00969ED2 /* EPIC TrackMe Tests */ = {
+			isa = PBXGroup;
+			children = (
+				28241C061778321B00969ED2 /* EPIC_TrackMe_Tests.m */,
+				28241C011778321B00969ED2 /* Supporting Files */,
+			);
+			path = "EPIC TrackMe Tests";
+			sourceTree = "<group>";
+		};
+		28241C011778321B00969ED2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				28241C021778321B00969ED2 /* EPIC TrackMe Tests-Info.plist */,
+				28241C031778321B00969ED2 /* InfoPlist.strings */,
+				28241C081778321B00969ED2 /* EPIC TrackMe Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		28B7DF1D1430A68C004FAD97 /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +262,24 @@
 			productReference = 2818191213FB9C70007F4D44 /* EPIC TrackMe.app */;
 			productType = "com.apple.product-type.application";
 		};
+		28241BFA1778321B00969ED2 /* EPIC TrackMe Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28241C0B1778321B00969ED2 /* Build configuration list for PBXNativeTarget "EPIC TrackMe Tests" */;
+			buildPhases = (
+				28241BF71778321B00969ED2 /* Sources */,
+				28241BF81778321B00969ED2 /* Frameworks */,
+				28241BF91778321B00969ED2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28241C0A1778321B00969ED2 /* PBXTargetDependency */,
+			);
+			name = "EPIC TrackMe Tests";
+			productName = "EPIC TrackMe Tests";
+			productReference = 28241BFB1778321B00969ED2 /* EPIC TrackMe Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -216,6 +287,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					28241BFA1778321B00969ED2 = {
+						TestTargetID = 2818191113FB9C70007F4D44;
+					};
+				};
 			};
 			buildConfigurationList = 2818190C13FB9C70007F4D44 /* Build configuration list for PBXProject "iTrackMe2" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -230,6 +306,7 @@
 			projectRoot = "";
 			targets = (
 				2818191113FB9C70007F4D44 /* EPIC TrackMe */,
+				28241BFA1778321B00969ED2 /* EPIC TrackMe Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,6 +335,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		28241BF91778321B00969ED2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28241C051778321B00969ED2 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -275,7 +360,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		28241BF71778321B00969ED2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28241C071778321B00969ED2 /* EPIC_TrackMe_Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		28241C0A1778321B00969ED2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2818191113FB9C70007F4D44 /* EPIC TrackMe */;
+			targetProxy = 28241C091778321B00969ED2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2818191F13FB9C70007F4D44 /* InfoPlist.strings */ = {
@@ -302,6 +403,14 @@
 			name = MainViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
+		28241C031778321B00969ED2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28241C041778321B00969ED2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -313,6 +422,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
@@ -357,6 +467,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
@@ -394,6 +505,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
@@ -443,6 +555,84 @@
 			};
 			name = Release;
 		};
+		28241C0C1778321B00969ED2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EPIC TrackMe.app/EPIC TrackMe";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EPIC TrackMe Tests/EPIC TrackMe Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				INFOPLIST_FILE = "EPIC TrackMe Tests/EPIC TrackMe Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		28241C0D1778321B00969ED2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EPIC TrackMe.app/EPIC TrackMe";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EPIC TrackMe Tests/EPIC TrackMe Tests-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				INFOPLIST_FILE = "EPIC TrackMe Tests/EPIC TrackMe Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		28241C0E1778321B00969ED2 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EPIC TrackMe.app/EPIC TrackMe";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EPIC TrackMe Tests/EPIC TrackMe Tests-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				INFOPLIST_FILE = "EPIC TrackMe Tests/EPIC TrackMe Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Distribution;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -465,6 +655,15 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		28241C0B1778321B00969ED2 /* Build configuration list for PBXNativeTarget "EPIC TrackMe Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28241C0C1778321B00969ED2 /* Debug */,
+				28241C0D1778321B00969ED2 /* Release */,
+				28241C0E1778321B00969ED2 /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 

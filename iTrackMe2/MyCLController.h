@@ -16,20 +16,50 @@
 @end
 
 
-
+/**
+ The Core Location Interfaice
+ 
+ */
 @interface MyCLController : NSObject <CLLocationManagerDelegate> {
+    /**
+     The Cre Location Manager
+     */
 	CLLocationManager *locationManager;
     id delegate;
 }
-
+/**
+ The Cre Location Manager
+ */
 @property (nonatomic, retain) CLLocationManager *locationManager;
+
+/**
+ The CL Delegate
+ */
+
 @property (unsafe_unretained) id  delegate;
+
+/** 
+ Is the CL running or not
+ */
+
 @property (nonatomic) BOOL running;
 
+/**
+ Location changed callback
+ @param manager The CL Manager
+ @param newLocation The New Location
+ @param oldLocation The Old Location
+ 
+ */
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation;
-
+/**
+ On Failiur
+ @param manager The CL Manager
+ @param error The Error
+ */
+ 
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error;
 

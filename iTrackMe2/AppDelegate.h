@@ -10,8 +10,6 @@
 #import "Location.h"
 
 
-
-
 @class MainViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
