@@ -288,6 +288,9 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				TargetAttributes = {
+					2818191113FB9C70007F4D44 = {
+						DevelopmentTeam = T96US4T989;
+					};
 					28241BFA1778321B00969ED2 = {
 						TestTargetID = 2818191113FB9C70007F4D44;
 					};
@@ -449,6 +452,7 @@
 		280DADD0146BA70F009BE34D /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTrackMe2/iTrackMe2-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
@@ -532,6 +536,7 @@
 		2818193D13FB9C71007F4D44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTrackMe2/iTrackMe2-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
@@ -545,6 +550,7 @@
 		2818193E13FB9C71007F4D44 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iTrackMe2/iTrackMe2-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
